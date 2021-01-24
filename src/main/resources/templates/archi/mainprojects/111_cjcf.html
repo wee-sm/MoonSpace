@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> include/header}}
+
+<style type="text/css">
+/* slide 7 */
+.content_wapper {
+	position: relative;
+	height: 100vh;
+}
+
+.content_text4 {
+	width: 1060px;
+}
+
+.modal-dialog {
+	position: relative;
+	height: 100vh;
+	margin: auto;
+}
+
+.modal-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(0, 0, 0, 0);
+	border: 0;
+}
+
+.modal-content>button {
+	border: 0;
+}
+
+.modal_img {
+	max-width: 800px;
+	max-height: 800px;
+}
+
+.otherimage {
+	position: relative;
+	display: inline-block;
+	width: 180px;
+	height: 180px;
+	border: 1px solid #000;
+	z-index: 0;
+	margin: 3px;
+	align-content: center;
+}
+
+.otherimage:hover {
+	z-index: 1;
+}
+
+.otherimage:before, .otherimage:after {
+	content: "";
+	background: white;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.otherimage:before {
+	width: calc(100% + 3px);
+	height: 100%;
+	z-index: 1;
+	transition: height 1s ease, opacity 0.8s ease;
+}
+
+.otherimage:after {
+	height: calc(100% + 3px);
+	width: 100%;
+	z-index: 1;
+	transition: width 1s ease, opacity 0.8s ease;
+}
+
+.otherimage:hover:before, .otherimage:focus:before {
+	transition: height 0.2s ease, opacity 0.3s ease;
+	height: 85%;
+	opacity: 0.7;
+}
+
+.otherimage:hover:after, .otherimage:focus:after {
+	transition: width 0.2s ease, opacity 0.3s ease;
+	width: 85%;
+	opacity: 0.8;
+}
+
+.otherimage_image {
+	width: 85%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(1);
+	transition: all 0.5s ease;
+	z-index: 2;
+}
+
+.otherimage_container {
+	width: 100%;
+	text-align: center;
+}
+
+.otherimage_contents {
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+	padding-left: 10px;
+}
+
+.otherimage_wrap {
+	width: 100%;
+	text-align: center;
+}
+
+.otherimage {
+	position: relative;
+	width: 180px;
+	height: 180px;
+	border: 1px solid #000;
+	margin: 3px;
+	z-index: 0;
+	display: inline-block;
+	align-content: center;
+	cursor: pointer;
+}
+
+.otherimage>button>img {
+	width: 85%;
+	height: 85%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: all 0.5s ease;
+	z-index: 2;
+	object-fit: cover;
+}
+
+/* slide */
+.slide1_wapper, .slide2_wapper, .slide3_wapper, .slide4_wapper {
+	position: relative;
+	height: 100vh;
+}
+/* slide 1 */
+.slide1_wapper>.textbox {
+	position: absolute;
+	top: 60px;
+	left: 50%;
+	width: 700px;
+	transform: translate(-50%, 0);
+	text-align: left;
+}
+
+.slide1_wapper>.imgbox {
+	position: absolute;
+	top: 400px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	text-align: center;
+}
+
+.slide1_wapper>.imgbox>img {
+	width: 700px;
+	filter: grayscale(75%);
+}
+
+/* slide 2 */
+.slide2_wapper>.textbox {
+	position: absolute;
+	top: 60px;
+	left: 50%;
+	width: 700px;
+	transform: translate(-50%, 0);
+	text-align: left;
+}
+
+.slide2_wapper>.imgbox {
+	position: absolute;
+	top: 450px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	text-align: center;
+}
+
+.slide2_wapper>.imgbox>img {
+	width: 350px;
+}
+
+/* slide 3 */
+.slide3_wapper>.textbox {
+	position: absolute;
+	top: 60px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 700px;
+	text-align: left;
+}
+
+.slide3_wapper>.background {
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* slide 4 */
+.slide4_wapper>.additional_wapper {
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	padding: 60px;
+	height: 500px;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	text-align: center;
+}
+
+.slide4_wapper>.additional_wapper>.textbox {
+	height: 380px;
+	width: 420px;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 30px;
+	color: white;
+	text-align: left;
+}
+
+.slide4_wapper>.additional_wapper>.imgbox {
+	height: 380px;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 30px;
+}
+
+.slide4_wapper>.additional_wapper>.imgbox>img {
+	width: 480px;
+	height: 100%;
+}
+
+.slide4_wapper>.background {
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* slide 6 */
+.slide6_wapper {
+	/* 	position: relative; */
+	height: 100vh;
+	width: 1500px;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+.slide6_wapper>.background {
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.slide6_wapper>.imgbox {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	height: 500px;
+	background-color: white;
+	/* 	background-color: rgba(0, 0, 0, 0.5); */
+}
+
+.slide6_wapper>.imgbox>img {
+	height: 100%;
+	/* 	filter: invert(100%); */
+}
+
+.slide6_wapper>.imgbox>.textbox {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+.slide6_wapper>.textbox {
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+	padding: 10px;
+	width: 700px;
+	font-family: 'Playfair Display', serif;
+	font-weight: 600;
+	font-size: 16px;
+	color: var(- -Color002);
+	text-align: right;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* slide 5 */
+.slide5_wapper {
+	position: relative;
+	height: 100vh;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 1200px;
+}
+
+.slide5_wapper>.imgbox {
+	position: absolute;
+	top: 0;
+	right: 0;
+	text-align: right;
+}
+
+.slide5_wapper>.imgbox>img {
+	max-height: 100vh;
+}
+
+.slide5_wapper>.textbox {
+	position: absolute;
+	top: 60px;
+	width: 500px;
+	text-align: left;
+}
+
+/* last slide */
+.slide_last_wapper {
+	position: relative;
+	height: 100vh;
+}
+
+.slide_last_wapper>.textbox {
+	position: absolute;
+	bottom: 60px;
+	right: 60px;
+	color: white;
+	text-shadow: 2px 2px 4px #000000;
+	text-align: right;
+}
+
+.slide_last_wapper>.background {
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.slide_last_wapper>.textbox>.project_summary {
+	padding: 5px 0 5px 0;
+	border-top: solid 1px;
+	border-bottom: solid 1px;
+}
+
+/* swiper-button */
+.nav_arrow {
+	position: absolute;
+	top: 0;
+	width: 300px;
+	height: 100%;
+	color: lightgray;
+}
+
+.nav_arrow:hover {
+	color: #007aff;
+	transform: scale(1.2);
+	transition: all 0.5s ease;
+}
+</style>
+</head>
+
+<body>
+	<!-- Slider main container -->
+	<div class="swiper-container">
+		<div class="swiper-button-next nav_arrow"></div>
+		<div class="swiper-button-prev nav_arrow"></div>
+		<div class="swiper-pagination"></div>
+		
+    	<!-- Additional required wrapper -->
+    	<div class="swiper-wrapper">
+    		
+    		<!-- Slides1 -->
+			<div class="swiper-slide">
+				<div class="slide1_wapper">
+					<div class="textbox">
+						<div style="padding: 0 0 5px 0;">
+							<span class="text_numbering">No.111<br></span>
+							<div class="text_title">
+								CheongJu Culture Factory<br>
+							</div>
+						</div>
+						<div style="padding: 5px 0 0 0; border-top: solid 1px">
+							<span> There was an old structure that was roled as a
+								working place for near residents. In this place, they could make
+								their future and look after their family in the past 70-years.
+								there was a place not only for work but also for life. It has
+								stood with the citizens for so long. But after the city was
+								grown up to a high tech industry city, it wasn't needed by the
+								people and it would be closed. But everyone who has lived with
+								the factory, always remember the time with this place and hope
+								they can be together again someday.<br><br> And now the factory
+								start to prepare the changing into a new place where they can be
+								together again as their hopes. We the designers of this project
+								also hope, they could meet again in the renovated culture
+								factory as each other's hope.
+							</span>
+						</div>
+					</div>
+					<div class="imgbox">
+						<img src="/images/mainprojects/111_cjcf/cj_01.jpg">
+					</div>
+				</div>
+			</div>
+			
+    		<!-- Slides2 -->
+			<div class="swiper-slide">
+				<div class="slide2_wapper">
+					<div class="textbox">
+						<div style="padding: 0 0 5px 0;">
+							<span class="text_numbering">No.111<br></span>
+							<div class="text_title">
+								CheongJu Culture Factory<br>
+							</div>
+						</div>
+						<div style="padding: 5px 0 0 0; border-top: solid 1px">
+							<span>The revival of the cigarette factory, which
+								functioned as a workplace for nearby residents, was one of the
+								long-awaited projects for the Cheongju government and citizens.
+								Cheongju urban regeneration was a project that transformed an
+								old cigarette factory facilities into a cultural & commercial
+								complex for local citizens and tourists. Our team played a vital
+								role in this project; remodeling the main building of the
+								factory that has an area of 50,000 square meters.<br><br> This
+								project had a complex client organization. The government and
+								local civic groups had the proprietary right to the culture
+								space, and the marketing design company and the construction
+								company had the ownership of the commercial space. In this
+								condition, the key of the project was coordinating each space
+								according to the needs of clients, creating a colossal complex
+								building, and preserving the heritage of the symbolical
+								structure.
+							</span>
+						</div>
+					</div>
+					<div class="imgbox">
+						<img src="/images/mainprojects/111_cjcf/cj_01_2.png">
+						<img src="/images/mainprojects/111_cjcf/cj_01_1.png">
+					</div>
+				</div>
+			</div>
+			
+    		<!-- Slides3 -->
+			<div class="swiper-slide">
+				<div class="slide3_wapper">
+					<div class="textbox">
+						<div style="padding: 0 0 5px 0;">
+							<span class="text_numbering">No.111<br></span>
+							<div class="text_title">
+								CheongJu Culture Factory<br>
+							</div>
+						</div>
+						<div style="padding: 5px 0 0 0; border-top: solid 1px">
+							<span class="italic">
+								Old Cigarette Factory Remodeling Project,
+								Core Project for Urban Regeneration<br>
+								Cheongju, South Korea
+							</span>
+						</div>
+					</div>
+					<div class="background" style="background-image: url('/images/mainprojects/111_cjcf/cj_02.png')"></div>
+				</div>
+			</div>
+    	
+    		<!-- Slide4 -->
+			<div class="swiper-slide">
+				<div class="slide4_wapper">
+					<div class="additional_wapper">
+						<div class="textbox">
+							<div style="padding: 0 0 5px 0;">
+								<div class="text_title" style="color:white;">
+									To be a new place<br>
+								</div>
+							</div>
+							<div style="padding: 5px 0 0 0; border-top: solid 1px">
+								<p>To be a new place for people lots of things in the
+									structures that consisted the factory should be changed or
+									removed. Than inner space of the factory had gone through major
+									changes to meet the new program. For example, the working
+									spaces used for cigarette making machines was transformed into
+									the central atrium with natural light by removing slabs of
+									several floors. Also, the old smokestack became the symbol of
+									the factory for visitors.</p>
+								<p>We had to throw away most of the remnants, it was
+									inevitable. But we tried to maintain the special items in our
+									design that represented the factory. So, We carry out the
+									project with respect to the old factory that was the place to
+									live for citizens.</p>
+							</div>
+						</div>
+						<div class="imgbox">
+							<img src="/images/mainprojects/111_cjcf/cj_05_1.png">
+						</div>
+					</div>
+					<div class="background" style="background-image: url('/images/mainprojects/111_cjcf/cj_05.png')"></div>
+				</div>
+			</div>
+			
+			
+    		<!-- Slide 6 -->
+			<div class="swiper-slide">
+				<div class="slide6_wapper">
+					<div class="imgbox">
+						<img src="/images/mainprojects/111_cjcf/cj_04_2.png">
+						<div class="textbox">
+							Hanger and Angle support Detail<br>(with Doctor-bar)<br>
+						</div>
+					</div>
+					<div class="textbox">
+						<div style="padding: 0 0 5px 0;">
+							<div class="text_title" style="color:white;">
+								Keep &#38; Break<br>
+							</div>
+						</div>
+						<div style="padding: 5px 0 0 0; border-top: solid 1px">
+							<span class="italic">
+								Facede Design Strategy<br>
+							</span> <span> We focused on keeping the massiveness of the old
+								factory while modifying the facade materials based on the
+								function of each space. To do that, we preserved as much of the
+								original facade since the old elevation possessed the grand
+								image of the factory.<br>
+								<br>
+								First, the pattern from the window positions was kept
+								in the original place, so that the local residents could recall
+								the shape of the old factory. Moreover, we concentrated curtain
+								wall glasses at the lower parts of the facade to maintain the
+								solidness of the original at the upper facade. Despite the
+								opposition from the MD plan, we managed to talk through the
+								benefits and was able to position the glasses as low as
+								possible. Lastly, we kept the uniformity of the facade form
+								inevitable additional openings for machines, galleries, etc. by
+								the &#39;opening brick wall&#39; as shown on the left.
+							</span>
+						</div>
+					</div>
+					<div class="background" style="background-image: url('/images/mainprojects/111_cjcf/cj_06.png')"></div>
+				</div>
+			</div>
+			
+    		<!-- Slide5 -->
+			<div class="swiper-slide">
+				<div class="slide5_wapper">
+					<div class="imgbox">
+						<img src="/images/mainprojects/111_cjcf/cj_03.png">
+					</div>
+					<div class="textbox">
+						<div style="padding: 0 0 5px 0;">
+							<div class="text_title">
+								Work scope as an Project Architect<br>
+							</div>
+						</div>
+						<div style="padding: 5px 0 0 0; border-top: solid 1px">
+							<p>
+								Our team was made up of 6 manpower Including myself. I worked as
+								a project designer and was the third person in charge of the
+								project, from the Schematic Design to the Construction
+								Administration. Followings are the duties I performed:<br>
+							</p>
+							<ul>
+								<li>Assisted MD planners by providing information and
+									suggestions to improve marketing design and feasibility
+									consultation for the commercial environment analysis.</li>
+								<li>Managed the fast-track schedule for &#39The Cheongju
+									Crafts Biennale&#39.</li>
+								<li>Created architectural drawings and documentation for
+									the building permit, environmental impact assessments
+									(including traffic) and value engineering.</li>
+								<li>Supported the construction site by creating documents
+									after reviewing the quality and suitability of the construction
+									and materials used.</li>
+							</ul>
+							<p>This project had a number of unique circumstances. First,
+								the summary table of the entire factory complex had been
+								disordered by several preceding remodeling projects and had to
+								go through extensive modification. Second, the schedule was
+								rigid with no delays allowed, because of the upcoming &#39The
+								Cheongju Craft Biennale&#39 is being held in the place. Third, the
+								design needed numerous adjustments in order to satiate the
+								repeatedly altered marketing strategy. Throughout the project,
+								tactful communication skills and practical experiences in urgent
+								situations were greatly required.</p>
+						</div>
+					</div>
+					<div class="background"></div>
+				</div>
+			</div>
+			
+			<!-- otherimage section -->
+			<div class="swiper-slide">
+				<div class="content_wapper">
+					<div class="content centerVH">
+						<div class="content_text4">
+							<div class="otherimage_container centerVH">
+								<section class="otherimage_contents">
+									<div class="otherimage_wrap" id="otherimage_wrap">
+									<!-- JS -->
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+    		<!-- Last Slide -->
+			<div class="swiper-slide">
+				<div class="slide_last_wapper">
+					<div class="textbox">
+						<div class="project_summary">
+							<table>
+								<tr>
+									<td>Urban Regeneration - Cheongju Old Cigarette Factory</td>
+									<th>Project</th>
+								</tr>
+								<tr>
+									<td>Cheongju Urban Design Office</td>
+									<th>Client</th>
+								</tr>
+								<tr>
+									<td>2017 - 2019</td>
+									<th>Year</th>
+								</tr>
+								<tr>
+									<td>Cheongwon-gu, Cheongju-si, Chungcheongbuk-do, Republic of Korea</td>
+									<th>Location</th>
+								</tr>
+								<tr>
+									<td>51,515.41sm / 35m (5F)</td>
+									<th>Size</th>
+								</tr>
+								<tr>
+									<td>Commercial, Culture, Gallery, Office</td>
+									<th>Program</th>
+								</tr>
+								<tr>
+									<td>RC, Structure Reinforcement</td>
+									<th>Structure</th>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="background" style="background-image: url('/images/mainprojects/111_cjcf/otherimages/cj_92.png')"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div id="modal_wapper">
+		<!-- JS -->
+	</div>
+	
+	<script type="text/javascript">
+		// swiper set
+		var mySwiper = new Swiper('.swiper-container', {
+			speed : 500,
+			effect : "fade",
+			fadeEffect : {
+				crossFade : true
+			},
+			// Optional parameters
+			loop : false,
+			autoplay : {
+				delay : 10000,
+			},
+			pagination : {
+				el : '.swiper-pagination',
+				type : "bullets",
+				clickable : true,
+			},
+			navigation : {
+				nextEl : '.swiper-button-next',
+				prevEl : '.swiper-button-prev',
+			},
+			simulateTouch: false,
+			keyboard: {
+				enabled: true,
+			},
+		})
+		
+		// other image and modal html
+		for (i = 71; i < 91; i++) {
+			imagehtml = ''; 
+			imagehtml += '<div class="otherimage">';
+			imagehtml += '<button data-toggle="modal" data-target="#img_' + i + '_Modal">';
+			imagehtml += '<img id="otherimage_' + i + '" src="/images/mainprojects/111_cjcf/otherimages/cj_' + i + '.png">';
+			imagehtml += '</button></div>';
+			$("#otherimage_wrap").append(imagehtml);
+			
+			modalhtml = '';
+			modalhtml += '<div class="modal fade" id="img_' + i + '_Modal">';
+			modalhtml += '<div class="modal-dialog modal-lg">';
+			modalhtml += '<div class="modal-content">';
+			modalhtml += '<button data-dismiss="modal">';
+			modalhtml += '<img class="modal_img" src="/images/mainprojects/111_cjcf/otherimages/cj_' + i + '.png">';
+			modalhtml += '</button></div></div></div>'
+			
+			$("#modal_wapper").append(modalhtml);
+		}
+	</script>
+	{{> include/footer}}
+</body>
+</html>

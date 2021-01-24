@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400&display=swap');
+
+:root {
+	--Color001: #FFFFFF; /* white */
+	--Color002: #000000; /* black */
+	--Color011: red; /* red */
+	--Color012: #000000;
+	--Size001: 350px;
+	--Size002: 300px; /* Size001 / 2 */
+}
+
+body {
+	position: relative;
+    font-family: 'Castoro', serif;
+}
+input, button, submit {
+	background: none;
+	border: 1px blod black;
+	padding: 0;
+	cursor: pointer;
+	color: inherit;
+	font: inherit;
+	outline: inherit;
+}
+
+/* button:hover{ */
+/* 	color: var(--Color011); */
+/* } */
+
+a, a:link, a:visited, a:active {
+	color: var(--Color002);
+}
+
+a:hover {
+	text-decoration: none;
+	color: var(--Color001);
+	background: var(--Color002);
+}
+
+.layout {
+	border-bottom: 0.5px solid;
+	padding: 10px 0px;
+    font-family: 'Castoro', serif;
+}
+
+.italic {
+	font-style: italic;
+	color: gray;
+}
+
+.hashtag {
+	color: #3F729B;
+	font-size: 14px;
+}
+
+/* .nolist{ */
+/* 	list-style-type:none; */
+/* } */
+
+.centerVH {
+	position: absolute;
+ 	top: 50%;
+ 	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+
+.text_mainline {
+/* 	index(home) page */
+	font-size: 40px;
+	color: var(--Color002);
+	font-weight: 900;
+	padding: 0px;
+}
+
+.text_subline {
+/* 	index(home) page */
+	font-size: 25px;
+	color: var(--Color001);
+	font-weight: 600;
+	background-color: var(--Color002);
+	padding: 0px 6px;
+}
+
+.text_numbering {
+	font-size: 16px;
+	color: var(--Color001);
+	background-color: var(--Color002);
+	padding: 0px 6px;
+    font-family: 'Castoro', serif;
+}
+
+.text_title {
+	font-family: 'Playfair Display', serif;
+	font-weight: 900;
+	font-size: 24px;
+	color: var(--Color002);
+}

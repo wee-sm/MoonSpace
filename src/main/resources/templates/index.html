@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{> include/header}}
+<style type="text/css">
+body, html, .swiper-container {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+</style>
+</head>
+<body>
+	{{> include/index_loading/base}}
+	<!-- Slider main container -->
+	<div class="swiper-container">
+    	<!-- Additional required wrapper -->
+    	<div class="swiper-wrapper">
+    		<!-- Slides -->
+			<div class="swiper-slide">
+				{{>include/index_main/main_01}}
+			</div>
+			<div class="swiper-slide">
+				{{>include/index_main/main_02}}
+			</div>
+			<div class="swiper-slide">
+				{{>include/index_main/main_03}}
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		// swiper
+		var mySwiper = new Swiper('.swiper-container', {
+			speed : 1000,
+			spaceBetween : 100,
+		    grabCursor: true,
+			// Optional parameters
+			direction : 'horizontal',
+			loop : false,
+			mousewheel : {
+				invert : false,
+			},
+			autoplay : {
+				delay : 3000,
+			},
+			effect : 'slide',
+			keyboard: {
+			    enabled: true,
+			    onlyInViewport: false,
+			},
+		})
+	</script>
+	{{> include/footer}}
+</body>
+</html>
