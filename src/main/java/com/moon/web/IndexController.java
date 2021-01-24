@@ -13,6 +13,6 @@ public class IndexController {
 	
 	@GetMapping("mainprojects/{name}")
 	public String mainprojects(@PathVariable String name) {
-		return "/archi/mainprojects/" + name;
+		return "archi/mainprojects/" + name;
 	}
 }
