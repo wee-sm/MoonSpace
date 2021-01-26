@@ -15,5 +15,4 @@ public class IndexController {
 	public String archiprojects(@PathVariable String name) {
 		return "archi/mainprojects/" + name;
 	}
-	
 }
