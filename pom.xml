@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.moon</groupId>
 	<artifactId>moon</artifactId>
-	<version>1.0</version>
+	<version>1.26</version>
 	<name>moon</name>
 	<description>Moons Homepage</description>
 	<properties>
