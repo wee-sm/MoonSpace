@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{{> include/header}}
+
+<style type="text/css">
+.content_wapper {
+	position: relative;
+	height: 100vh;
+}
+
+.content>.content_background {
+	max-height: 100vh;
+}
+
+.content>.content_background>img {
+	max-height: 100vh;
+}
+
+.content>.content_text1 {
+	position: absolute;
+	left: 60px;
+	bottom: 60px;
+	width: 360px;
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 10px;
+}
+
+.content>.content_text2 {
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 50px;
+	text-align: center;
+	width: 540px;
+}
+
+.imgbox1 {
+	position: absolute;
+	bottom: 0px;
+	overflow: hidden;
+}
+
+.imgbox1>img {
+	width: 100%;
+	display: block;
+	transition: .3s ease-in-out;
+}
+
+.imgbox1>img:hover {
+	transform: scale(1.4);
+}
+
+.imgbox2 {
+	position: absolute;
+	right: 0;
+	overflow: hidden;
+}
+
+.imgbox3 {
+	padding: 10px;
+}
+
+.imgbox3>img {
+	width: 85%;
+}
+
+/* otherimages */
+.content_text2 {
+	width: 100%;
+}
+
+.otherimage {
+	position: relative;
+	display: inline-block;
+	width: 180px;
+	height: 180px;
+	border: 1px solid #000;
+	z-index: 0;
+	margin: 3px;
+	align-content: center;
+}
+
+.otherimage:hover {
+	z-index: 1;
+}
+
+.otherimage:before, .otherimage:after {
+	content: "";
+	background: white;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.otherimage:before {
+	width: calc(100% + 3px);
+	height: 100%;
+	z-index: 1;
+	transition: height 1s ease, opacity 0.8s ease;
+}
+
+.otherimage:after {
+	height: calc(100% + 3px);
+	width: 100%;
+	z-index: 1;
+	transition: width 1s ease, opacity 0.8s ease;
+}
+
+.otherimage:hover:before, .otherimage:focus:before {
+	transition: height 0.2s ease, opacity 0.3s ease;
+	height: 85%;
+	opacity: 0.7;
+}
+
+.otherimage:hover:after, .otherimage:focus:after {
+	transition: width 0.2s ease, opacity 0.3s ease;
+	width: 85%;
+	opacity: 0.8;
+}
+
+.otherimage_image {
+	width: 85%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(1);
+	transition: all 0.5s ease;
+	z-index: 2;
+}
+
+.otherimage_container {
+	width: 100%;
+	text-align: center;
+}
+
+.otherimage_contents {
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+	padding-left: 10px;
+}
+
+.otherimage_wrap {
+	width: 100%;
+	text-align: center;
+}
+
+.otherimage {
+	position: relative;
+	width: 180px;
+	height: 180px;
+	border: 1px solid #000;
+	margin: 3px;
+	z-index: 0;
+	display: inline-block;
+	align-content: center;
+	cursor: pointer;
+}
+
+.otherimage>button>img {
+	width: 85%;
+	height: 85%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: all 0.5s ease;
+	z-index: 2;
+	object-fit: cover;
+}
+
+.content_text4 {
+	width: 1060px;
+}
+
+.modal-dialog {
+	position: relative;
+	height: 100vh;
+	margin: auto;
+}
+
+.modal-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(0, 0, 0, 0);
+	border: 0;
+}
+
+.modal-content>button {
+	border: 0;
+}
+
+.modal_img {
+	max-width: 800px;
+	max-height: 800px;
+}
+
+/* last slide */
+.slide_last_wapper {
+	position: relative;
+	height: 100vh;
+}
+
+.slide_last_wapper>.textbox {
+	position: absolute;
+	bottom: 60px;
+	right: 60px;
+	color: white;
+	text-shadow: 2px 2px 4px #000000;
+	text-align: right;
+}
+
+.slide_last_wapper>.background {
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.slide_last_wapper>.textbox>.project_summary {
+	padding: 5px 0 5px 0;
+	border-top: solid 1px;
+	border-bottom: solid 1px;
+}
+
+/* swiper-button */
+.nav_arrow {
+	position: absolute;
+	top: 0;
+	width: 300px;
+	height: 100%;
+	color: lightgray;
+}
+
+.nav_arrow:hover {
+	color: #007aff;
+	transition: all 0.5s ease;
+}
+</style>
+</head>
+
+<body>
+	<!-- Slider main container -->
+	<div class="swiper-container">
+		<div class="swiper-button-next nav_arrow"></div>
+		<div class="swiper-button-prev nav_arrow"></div>
+		<div class="swiper-pagination"></div>
+		
+    	<!-- Additional required wrapper -->
+    	<div class="swiper-wrapper">
+    	
+    		<!-- Slides -->
+			<div class="swiper-slide">
+				<div class="content_wapper">
+					<div class="content centerVH">
+						<div class="content_background">
+							<img src="/images/mainprojects/109_dhob/dh_11.png">
+						</div>
+						<div class="content_text1">
+							<div style="padding: 0 0 5px 0;">
+								<span class="text_numbering">No.101<br></span>
+								<div class="text_title">
+									DHOLIC<br>Company Building<br>
+								</div>
+							</div>
+							<div style="padding: 5px 0 0 0; border-top: solid 1px">
+								<span class="italic">
+									Office Building Remodeling Project<br>
+									Seoul, South Korea<br>
+								</span>
+								<span>
+									As the 1st generation of an e-commerce company,
+									Dholic is now expanding its services to the world. This building
+									will be the center of the company, from sales to branding. That
+									is why the project symbolically shows the challenges, creatives
+									and innovations of leading companies through facades. It also
+									applied an eco-friendly building plan to improve work efficiency
+									in office space.<br> The project won the grand prize for the
+									2018 Korean Remodeling Building.
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="swiper-slide">
+				<div class="content_wapper">
+					<div class="content centerVH">
+						<div class="content_background">
+							<div class="imgbox1">
+								<img src="/images/mainprojects/109_dhob/dh_14.png">
+							</div>
+							<img src="/images/mainprojects/109_dhob/dh_12.png">
+						</div>
+						<div class="content_text2">
+							<span style="font-family: 'Playfair Display', serif; font-weight:900; font-size: 20px;">Facade Design</span><br>
+							<div style="padding: 10px 0 0 0; border-top: solid 1px">
+								<img src="/images/mainprojects/109_dhob/dh_13.png" style="width: 100%;">
+							</div>
+							<div style="padding: 10px 0 0 0;">
+								<span>
+									There are two different facade concepts of upper
+									and lower parts. The lower section has a podium space with
+									columns where pedestrians can stay and observe the products.
+									And at the upper section, a combination of existing structural
+									grids and new tilted windows shows the concept of the fabric
+									composition. In the old urban contexts, this building can
+									represent the creativity and individuality of the company.
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+			
+			<div class="swiper-slide">
+				<div class="content_wapper">
+					<div class="content centerVH">
+						<div class="content_background">
+							<div class="imgbox2">
+								<img src="/images/mainprojects/109_dhob/dh_15.png">
+							</div>
+							<img src="/images/mainprojects/109_dhob/dh_12.png">
+						</div>
+						<div class="content_text3">
+							<div style="position: absolute; left: 60px; top: 60px; width: 400px; background-color: rgba(255, 255, 255, 0.5); padding: 10px;">
+								<div>
+									<span style="font-family: 'Playfair Display', serif; font-weight:900; font-size: 20px;">Detail Development</span><br>
+								</div>
+								<div style="padding: 5px 0 0 0; border-top: solid 1px">
+									The target of this remodeling project was a building that has
+									been over 30 years old. Therefore, the first thing that had to
+									consider was structural issues that not enough for nowadays
+									standards. Therefore this project started with an analysis of
+									the weakness of building performance such as insulation, HVAC,
+									emergency alarms, etc, in addition to the structure.<br>
+									Basically, the design was planned to maintain existing
+									frameworks and minimize the structural burden. And overall
+									facilities were repaired or exchanged to meet the current
+									standards.
+								</div>
+								<div class="imgbox3">
+									<span class="text_numbering">
+										Facade Detail<br>
+									</span>
+									<img src="/images/mainprojects/109_dhob/dh_16.png"><br>
+									<span class="italic">
+										Tilted windows and reinforcement details
+									</span>
+								</div>
+								<div>
+									On the irregular existing structure, detailed cross section
+									planning was required to plan regular facade grids and slanted
+									windows. So we measured the structural status of all floors,
+									and drew detailed drawings considering structural
+									reinforcement.<br> Finally, the overall remodeling was
+									carried out by finishing the building's elevation with limeston
+									and clear glass.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- otherimage section -->
+			<div class="swiper-slide">
+				<div class="content_wapper">
+					<div class="content centerVH">
+						<div class="content_text4">
+							<div class="otherimage_container centerVH">
+								<section class="otherimage_contents">
+									<div class="otherimage_wrap" id="otherimage_wrap">
+									<!-- JS -->
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+    		<!-- Last Slide -->
+			<div class="swiper-slide">
+				<div class="slide_last_wapper">
+					<div class="textbox">
+						<div class="project_summary">
+							<table>
+								<tr>
+									<td>DHOLIC Company Building Remodeling</td>
+									<th> Project </th>
+								</tr>
+								<tr>
+									<td>DHOLIC Comapny &#38; Design5(constructor)</td>
+									<th> Client </th>
+								</tr>
+								<tr>
+									<td>2017 - 2019</td>
+									<th> Year </th>
+								</tr>
+								<tr>
+									<td>35, Bomun-ro, Seongbuk-gu, Seoul, Republic of Korea</td>
+									<th> Location </th>
+								</tr>
+								<tr>
+									<td>11,231.43sm / 36m (B3F / 10F)</td>
+									<th> Size </th>
+								</tr>
+								<tr>
+									<td>Office, Commercial</td>
+									<th> Program </th>
+								</tr>
+								<tr>
+									<td>RC, Structure Reinforcement</td>
+									<th> Structure </th>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="background" style="background-image: url('/images/mainprojects/109_dhob/otherimages/dh_60.png')"></div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<!-- Modal -->
+	<div id="modal_wapper">
+		<!-- JS -->
+	</div>
+	
+	<script type="text/javascript">
+		// swiper set
+		var mySwiper = new Swiper('.swiper-container', {
+			speed : 500,
+			effect : "fade",
+			fadeEffect : {
+				crossFade : true
+			},	
+			// Optional parameters
+			loop : false,
+			autoplay : {
+				delay : 10000,
+			},
+			pagination : {
+				el : '.swiper-pagination',
+				type : "bullets",
+				clickable : true,
+			},
+			navigation : {
+				nextEl : '.swiper-button-next',
+				prevEl : '.swiper-button-prev',
+			},
+			simulateTouch: false,
+			keyboard: {
+				enabled: true,
+			},
+		})
+		
+		// other image and modal html
+		for (i = 51; i < 71; i++) {
+			imagehtml = ''; 
+			imagehtml += '<div class="otherimage">';
+			imagehtml += '<button data-toggle="modal" data-target="#img_' + i + '_Modal">';
+			imagehtml += '<img id="otherimage_' + i + '" src="/images/mainprojects/109_dhob/otherimages/dh_' + i + '.png">';
+			imagehtml += '</button></div>';
+			$("#otherimage_wrap").append(imagehtml);
+			
+			modalhtml = '';
+			modalhtml += '<div class="modal fade" id="img_' + i + '_Modal">';
+			modalhtml += '<div class="modal-dialog modal-lg">';
+			modalhtml += '<div class="modal-content">';
+			modalhtml += '<button data-dismiss="modal">';
+			modalhtml += '<img class="modal_img" src="/images/mainprojects/109_dhob/otherimages/dh_' + i + '.png">';
+			modalhtml += '</button></div></div></div>'
+			
+			$("#modal_wapper").append(modalhtml);
+		}
+	</script>
+	{{> include/footer}}
+</body>
+</html>
