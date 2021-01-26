@@ -13,43 +13,45 @@ body, html, .swiper-container {
 </style>
 </head>
 <body>
-	{{> include/index_loading/base}}
+	{{> index/loading/base}}
 	<!-- Slider main container -->
-	<div class="swiper-container">
+	<div class="swiper-container swiper-container-h">
     	<!-- Additional required wrapper -->
     	<div class="swiper-wrapper">
     		<!-- Slides -->
 			<div class="swiper-slide">
-				{{>include/index_main/main_01}}
+				{{>index/main/main_01}}
 			</div>
 			<div class="swiper-slide">
-				{{>include/index_main/main_02}}
+				{{>index/main/main_02}}
 			</div>
 			<div class="swiper-slide">
-				{{>include/index_main/main_03}}
+				{{>index/main/main_04}}
 			</div>
 		</div>
 	</div>
+	{{>index/main/main_04_modal}}
+	
 
 	<script type="text/javascript">
 		// swiper
-		var mySwiper = new Swiper('.swiper-container', {
+		var swiperH = new Swiper('.swiper-container-h', {
 			speed : 1000,
 			spaceBetween : 100,
-		    grabCursor: true,
+			grabCursor : true,
 			// Optional parameters
 			direction : 'horizontal',
 			loop : false,
 			mousewheel : {
 				invert : false,
 			},
-			autoplay : {
-				delay : 3000,
-			},
+// 			autoplay : {
+// 				delay : 3000,
+// 			},
 			effect : 'slide',
-			keyboard: {
-			    enabled: true,
-			    onlyInViewport: false,
+			keyboard : {
+				enabled : true,
+				onlyInViewport : false,
 			},
 		})
 	</script>

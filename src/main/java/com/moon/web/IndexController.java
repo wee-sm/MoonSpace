@@ -11,8 +11,9 @@ public class IndexController {
 		return "index";
 	}
 	
-	@GetMapping("mainprojects/{name}")
-	public String mainprojects(@PathVariable String name) {
-		return "archi/mainprojects/" + name;
+	@GetMapping("archi/{type}/{name}")
+	public String archiprojects(@PathVariable String type, @PathVariable String name) {
+		return "/archi/" + type + "/" + name;
 	}
+	
 }
