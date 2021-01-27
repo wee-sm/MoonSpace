@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{> include/header}}
+
+<style type="text/css">
+/* slide 0 */
+.slide0_wapper {
+	position: relative;
+	height: 100vh;
+	text-align: center;
+}
+
+.slide0_wapper>.background {
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.slide0_wapper>.textbox {
+	position: absolute;
+ 	top: 20%;
+ 	left: 50%;
+	transform: translate(-50%, -50%);
+	vertical-align: middle;
+	width: 500px;
+	margin-top: 100px;
+	margin-left: 100px;
+	text-align: left;
+	display: inline-block;
+	text-align: center;
+}
+
+
+/* slide 7 */
+.content_wapper {
+	position: relative;
+	height: 100vh;
+}
+
+.content_text4 {
+	width: 1060px;
+}
+
+.modal-dialog {
+	position: relative;
+	height: 100vh;
+	margin: auto;
+}
+
+.modal-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(0, 0, 0, 0);
+	border: 0;
+}
+
+.modal-content>button {
+	border: 0;
+}
+
+.modal_img {
+	max-width: 800px;
+	max-height: 800px;
+}
+
+.otherimage:hover {
+	z-index: 1;
+}
+
+.otherimage:before, .otherimage:after {
+	content: "";
+	background: white;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.otherimage:before {
+	width: calc(100% + 3px);
+	height: 100%;
+	z-index: 1;
+	transition: height 1s ease, opacity 0.8s ease;
+}
+
+.otherimage:after {
+	height: calc(100% + 3px);
+	width: 100%;
+	z-index: 1;
+	transition: width 1s ease, opacity 0.8s ease;
+}
+
+.otherimage:hover:before, .otherimage:focus:before {
+	transition: height 0.2s ease, opacity 0.3s ease;
+	height: 85%;
+	opacity: 0.7;
+}
+
+.otherimage:hover:after, .otherimage:focus:after {
+	transition: width 0.2s ease, opacity 0.3s ease;
+	width: 85%;
+	opacity: 0.8;
+}
+
+.otherimage_image {
+	width: 85%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(1);
+	transition: all 0.5s ease;
+	z-index: 2;
+}
+
+.otherimage_container {
+	width: 100%;
+	text-align: center;
+}
+
+.otherimage_contents {
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+	padding-left: 10px;
+}
+
+.otherimage_wrap {
+	width: 100%;
+	text-align: center;
+}
+
+.otherimage {
+	position: relative;
+	width: 240px;
+	height: 240px;
+	border: 1px solid #000;
+	margin: 3px;
+	z-index: 0;
+	display: inline-block;
+	align-content: center;
+	cursor: pointer;
+}
+
+.otherimage>button>img {
+	width: 85%;
+	height: 85%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: all 0.5s ease;
+	z-index: 2;
+	object-fit: cover;
+}
+
+/* slide 1 */
+.slide1_wapper {
+	position: relative;
+	height: 100vh;
+	text-align: center;
+}
+
+.slide1_wapper>.textbox {
+	vertical-align: middle;
+	width: 500px;
+	margin-top: 100px;
+	margin-left: 100px;
+	text-align: left;
+	display: inline-block;
+}
+
+.slide1_wapper>.imgbox {
+	vertical-align: middle;
+	width: 500px;
+	margin-top: 100px;
+	margin-right: 100px;
+	text-align: center;
+	display: inline-block;
+}
+
+.slide1_wapper>.imgbox>img {
+	width: 100%;
+	border: 5px solid black;
+}
+
+/* slide 2 */
+.slide2_wapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 700px;
+	height: 100vh;
+	text-align: center;
+}
+
+.slide2_wapper>.imgbox>img {
+	width: 100%;
+	margin-bottom: 50px;
+	margin-top: 100px;
+}
+
+/* slide 3 */
+.slide3_wapper {
+	position: relative;
+	height: 100vh;
+	text-align: center;
+}
+
+.slide3_wapper>.textbox {
+	vertical-align: middle;
+	width: 500px;
+	margin-top: 200px;
+	margin-left: 100px;
+	text-align: left;
+	display: inline-block;
+}
+
+.slide3_wapper>.imgbox {
+	vertical-align: middle;
+	width: 500px;
+	margin-top: 200px;
+	margin-right: 100px;
+	text-align: center;
+	display: inline-block;
+}
+
+.slide3_wapper>.imgbox>img {
+	width: 100%;
+}
+
+
+/* slide 4 */
+.slide4_wapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 900px;
+	height: 100vh;
+	text-align: center;
+}
+
+.slide4_wapper>.imgbox>img {
+	width: 100%;
+	margin-top: 150px;
+}
+
+/* slide 5 */
+.slide5_wapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 900px;
+	height: 100vh;
+	text-align: center;
+}
+
+.slide5_wapper>.textbox {
+	width: 900px;
+	margin-top: 50px;
+	text-align: center;
+}
+
+.slide5_wapper>.imgbox {
+	height: 400px;
+	margin-top: 150px;
+	text-align: center;
+}
+
+.slide5_wapper>.imgbox>img {
+	height: 100%;
+	margin: 20px;
+	display: inline-block;
+}
+
+/* slide 6 */
+.slide6_wapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	height: 100vh;
+	text-align: center;
+}
+
+.slide6_wapper>.imgbox {
+	height: 600px;
+	text-align: center;
+}
+
+.slide6_wapper>.imgbox>img {
+	height: 100%;
+	display: inline-block;
+	margin-top: 120px;
+}
+
+/* last slide */
+.slide_last_wapper {
+	position: relative;
+	height: 100vh;
+}
+
+.slide_last_wapper>.textbox {
+	position: absolute;
+	top: 60px;
+	right: 60px;
+	color: blakc;
+/* 	text-shadow: 2px 2px 4px #000000; */
+	text-align: right;
+}
+
+.slide_last_wapper>.background {
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.slide_last_wapper>.textbox>.project_summary {
+	padding: 5px 0 5px 0;
+/* 	border-top: solid 1px; */
+/* 	border-bottom: solid 1px; */
+}
+
+/* swiper-button */
+.nav_arrow {
+	position: absolute;
+	top: 0;
+	width: 300px;
+	height: 100%;
+	color: lightgray;
+}
+
+.nav_arrow:hover {
+	color: #007aff;
+	transition: all 0.5s ease;
+}
+</style>
+</head>
+
+<body>
+	<!-- Slider main container -->
+	<div class="swiper-container-cjcf">
+		<div class="swiper-button-next nav_arrow"></div>
+		<div class="swiper-button-prev nav_arrow"></div>
+		<div class="swiper-pagination"></div>
+
+		<!-- Additional required wrapper -->
+		<div class="swiper-wrapper">
+
+
+			<!-- Slide 0 -->
+			<div class="swiper-slide">
+				<div class="slide0_wapper">
+					<div class="textbox">
+						<div style="padding: 0 0 5px 0;">
+							<span class="text_numbering">No.051<br></span>
+							<div class="text_title" style="font-size:36px;">
+								How to use Han-river<br>
+							</div>
+						<div style="padding: 5px 0 0 0; border-top: solid 1px">
+							<span class="italic">2016 University Graduate Project</span>
+						</div>
+						</div>
+					</div>
+					<div class="background" style="background-image: url('/images/schoolprojects/051_htuhr/otherimages/htuhr_50.JPG')"></div>
+				</div>
+			</div>
+			
+			<!-- Slides1 -->
+			<div class="swiper-slide">
+				<div class="slide1_wapper">
+					<div class="imgbox">
+						<img src="/images/schoolprojects/051_htuhr/htuhr_01.png">
+					</div>
+					<div class="textbox">
+						<div style="padding: 0 0 5px 0;">
+							<span class="text_numbering">No.051<br></span>
+							<div class="text_title">
+								How to use Han-river<br>
+							</div>
+						</div>
+						<div style="padding: 5px 0 0 0; border-top: solid 1px">
+							<p>Of all this time using delivery services, have you thought
+								about the meaning of several layers of packaging? This project
+								began from a paradox of several layers of packaging. This
+								research is confined to areas in Seoul, Korea, and consists of
+								investigating distribution flow, recognizing the problems and
+								suggesting for improvements. Furthermore, it contains
+								architectural feasibility analysis and solution design, based on
+								the prior research. First, collected data of 5-years
+								distribution and displayed in diagrams. As analyzing the
+								quantity of domestic carbon emission and the change of each
+								industrial distribution flow, I was able to observe the
+								following problems.</p>
+							<ul>
+								<li>The abnormal volume of the distribution caused by
+									industrial unbalances between Seoul and the other regions.
+									(Seoul is only consuming in the distribution of goods)
+								<li>The cost of the energy consumed by distribution
+									surpasses the cost of the products.</li>
+								<li>The plethora of stock produced by the logic of the
+									market.</li>
+							</ul>
+							<p>In conclusion, the efficiency of energy and control of
+								stocks were in need.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Slides2-1 -->
+			<div class="swiper-slide">
+				<div class="slide2_wapper">
+					<div class="imgbox">
+						<img src="/images/schoolprojects/051_htuhr/htuhr_11.png">
+					</div>
+					<div class="textbox">
+						<p>Second, when I compared the volume of distribution in Seoul
+							with other regions, most distributions with Seoul were created by
+							areas adjacent to Seoul. So, improvements in the distribution
+							system between those areas could bring the most effective
+							results. In this regard, I made a hypothesis that using Han-river
+							could be the solution to these problems because Han-river is
+							linked with all the targeted areas.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Slides2-2 -->
+			<div class="swiper-slide">
+				<div class="slide2_wapper">
+					<div class="imgbox">
+						<img src="/images/schoolprojects/051_htuhr/htuhr_12.png">
+					</div>
+					<div class="textbox">
+						<p>To evaluate the feasibility of this hypothesis, I selected
+							the products which can be transported by shipping in containers
+							and calculated the volume of the distributions on land that could
+							be substituted by water transportation. In this process, I
+							referred to references in similar cases implemented in German and
+							America. As a result, I drew out the following conclusion.</p>
+						<p>If the water transportation is capable of utilizing three
+							R/S ships (250 TEU) and ten cargo ships a day, this hypothesis is
+							feasible</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Slides3 -->
+			<div class="swiper-slide">
+				<div class="slide3_wapper">
+					<div class="imgbox">
+						<img src="/images/schoolprojects/051_htuhr/htuhr_02.png">
+					</div>
+					<div class="textbox">
+						<div>
+							<p>Considering the water-way from the Yellow Sea and the
+								space required for docking ships, I selected Ichon-Hangang park
+								as a site for a waterfront port. The site is approximately 2km
+								in length and 150m in width, approximately 3 times bigger than
+								the left image.</p>
+							<p>Followings are some unique features of the designed port,
+								which separate it from the others.</p>
+							<ul>
+								<li>The port applied the mobility from the pontoon system
+									to prepared for the annual flood of the Han-river in the
+									Summer.</li>
+								<li>The unit size of storage yard has been adjusted based
+									on human activities, instead of containers.</li>
+								<li>The traffic system on the port includes both roads for
+									pedestrians and trams in order to improve the approach of
+									users.</li>
+								<li>The crane system connects the entire yard to extend the
+									movable range for containers.</li>
+							</ul>
+							<p>In this project, I did not plan the shape of the port, but the
+								system of the port. I wanted to talk about visions and
+								possibilities of the port. of this port. it was actualized
+								through the next process.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Slides4 -->
+			<div class="swiper-slide">
+				<div class="slide4_wapper">
+					<div class="imgbox">
+						<img src="/images/schoolprojects/051_htuhr/htuhr_13.png">
+					</div>
+					<div class="textbox">
+						<p>For extending the meaning of the distribution in the port,
+							I adjusted the details of the plan. First, the layout and size of
+							the unit yards were modified to embrace the various programs.
+							Through this modification, the port can afford to operate for
+							human activities.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Slides5 -->
+			<div class="swiper-slide">
+				<div class="slide5_wapper">
+					<div class="imgbox">
+						<img src="/images/schoolprojects/051_htuhr/htuhr_14.png">
+						<img src="/images/schoolprojects/051_htuhr/htuhr_15.png">
+					</div>
+					<div class="textbox">
+						<div>
+							<p>Moreover, I created a new foundation system using steel
+								frame and wire to satisfy the safety standard for a human. This
+								design was developed from a fixing system of a vessel ship. It
+								was focused on the stability rather than the flexibility of the
+								space.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Slides6 -->
+			<div class="swiper-slide">
+				<div class="slide6_wapper">
+					<div class="imgbox">
+						<img src="/images/schoolprojects/051_htuhr/htuhr_17.png">
+						<img src="/images/schoolprojects/051_htuhr/htuhr_16.png">
+					</div>
+				</div>
+			</div>
+
+			<!-- otherimage section -->
+			<div class="swiper-slide">
+				<div class="content_wapper">
+					<div class="content centerVH">
+						<div class="content_text4">
+							<div class="otherimage_container centerVH">
+								<section class="otherimage_contents">
+									<div class="otherimage_wrap" id="otherimage_wrap">
+										<!-- JS -->
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Last Slide -->
+			<div class="swiper-slide">
+				<div class="slide_last_wapper">
+					<div class="textbox">
+						<div class="project_summary">
+							The port is a space to contain various programs.<br>
+							Through several steps, this space extends its own role in the urban system. <br>
+							Products > Commercial > Leisure > Culture > Living <br>
+							Eventually, I hope this project actualizes the innovative place<br>
+							through a distribution of space, as the image on the first page.
+						</div>
+					</div>
+					<div class="background" style="background-image: url('/images/schoolprojects/051_htuhr/htuhr_03.png')"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div id="modal_wapper">
+		<!-- JS -->
+	</div>
+
+	<script type="text/javascript">
+		// swiper set
+		var cjcfSwiper = new Swiper('.swiper-container-cjcf', {
+			speed : 500,
+			effect : "fade",
+			fadeEffect : {
+				crossFade : true
+			},
+			// Optional parameters
+			loop : false,
+			// 			autoplay : {
+			// 				delay : 10000,
+			// 			},
+			pagination : {
+				el : '.swiper-pagination',
+				type : "bullets",
+				clickable : true,
+			},
+			navigation : {
+				nextEl : '.swiper-button-next',
+				prevEl : '.swiper-button-prev',
+			},
+			simulateTouch : false,
+			keyboard : {
+				enabled : true,
+			},
+		})
+
+		// other image and modal html
+		for (i = 51; i < 63; i++) {
+			imagehtml = '';
+			imagehtml += '<div class="otherimage">';
+			imagehtml += '<button data-toggle="modal" data-target="#img_' + i + '_Modal">';
+			imagehtml += '<img id="otherimage_' + i + '" src="/images/schoolprojects/051_htuhr/otherimages/htuhr_' + i + '.JPG">';
+			imagehtml += '</button></div>';
+			$("#otherimage_wrap").append(imagehtml);
+
+			modalhtml = '';
+			modalhtml += '<div class="modal fade" id="img_' + i + '_Modal">';
+			modalhtml += '<div class="modal-dialog modal-lg">';
+			modalhtml += '<div class="modal-content">';
+			modalhtml += '<button data-dismiss="modal">';
+			modalhtml += '<img class="modal_img" src="/images/schoolprojects/051_htuhr/otherimages/htuhr_' + i + '.JPG">';
+			modalhtml += '</button></div></div></div>'
+
+			$("#modal_wapper").append(modalhtml);
+		}
+	</script>
+	{{> include/footer}}
+</body>
+</html>

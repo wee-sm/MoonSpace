@@ -24,10 +24,6 @@ input, button, submit {
 	outline: inherit;
 }
 
-/* button:hover{ */
-/* 	color: var(--Color011); */
-/* } */
-
 a, a:link, a:visited, a:active {
 	color: var(--Color002);
 }
@@ -53,10 +49,6 @@ a:hover {
 	color: #3F729B;
 	font-size: 14px;
 }
-
-/* .nolist{ */
-/* 	list-style-type:none; */
-/* } */
 
 .centerVH {
 	position: absolute;

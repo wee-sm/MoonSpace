@@ -1,127 +1,97 @@
 <style type="text/css">
-.sample_image {
+figure.effect-marley {
 	position: relative;
-/*  align-item: center; */
-	background-color: #fff;
-	border: 1px solid #eee;
-	display: flex;
-	justify-content: center;
-	width: 300px;
-	height: 300px;
-	z-index: 1000;
-}
-.sample_image img {
-	object-fit: cover;
 	height: 300px;
 	width: 300px;
+	transition: height 0.35s ease-in-out;
 }
-.sample_image::before, .sample_image::after {
-	background-image: linear-gradient(-180deg, #a1deff 0%, #5ea3db 97%);
-	content: "";
+
+figure.effect-marley figcaption {
 	height: 100%;
-	position: absolute;
-	transition: all 0.2s;
-	transition-delay: 0.2s;
-	transform: translateY(0px) translateX(0px);
 	width: 100%;
-	z-index: -1;
+	text-align: right;
+}
+figure.effect-marley img {
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+	transition: brightness 0.2s;
+}
+figure.effect-marley:hover img {
+	filter: brightness(0.5);
 }
 
-.sample_image::after {
-	background-image: linear-gradient(0deg, #ffcf70 0%, #ffae3d 97%);
+figure.effect-marley figcaption .fig_title .text_title {
+	transition: color 0.35s;
+	transition: text-shadow 0.2s;
 }
 
-.workingsample:hover > .sample_image {
-	animation-name: hoverPop;
-	animation-duration: 0.4s;
-	height: 400px;
+figure.effect-marley:hover figcaption .fig_title .text_title {
+	color:white;
+	text-shadow: 3px 3px #000000;
 }
 
-.workingsample:hover > .sample_image > img {
-	box-shadow: 2px 2px 4px 0px rgba(10, 12, 15, 0.27);
-	box-shadow: 0px 0px 30px 0px rgba(10, 12, 15, 0.27);
-	height: 400px;
-}
-.workingsample:hover > .sample_image::before {
-	animation: slick-hover-2 3s 0.4s linear infinite;
-	transform: translateY(-20px) translateX(-20px);
-}
-.workingsample:hover > .sample_image::after {
-	animation: slick-hover 3s 0.4s linear infinite reverse;
-	transform: translateY(20px) translateX(20px);
-}
-@keyframes hoverPop {
-	0%, 100% {
-		transform: scale(1);
-	}
-	33% {
-		transform: scale(1.05);
-	}
-	66% {
-		transform: scale(0.9);
-	}
-}
-@keyframes slick-hover {
-	0% {
-		transform: translateY(20px) translateX(20px);
-	}
-	16.67% {
-		transform: translateY(-13px) translateX(-9px);
-	}
-	33.33% {
-		transform: translateY(4px) translateX(12px);
-	}
-	50% {
-		transform: translateY(20px) translateX(-20px);
-	}
-	66.67% {
-		transform: translateY(-3px) translateX(8px);
-	}
-	83.33% {
-		transform: translateY(-15px) translateX(-11px);
-	}
-	100% {
-		transform: translateY(20px) translateX(20px);
-	}
-}
-@keyframes slick-hover-2 {
-	0% {
-		transform: translateY(-20px) translateX(-20px);
-	}
-	16.67% {
-		transform: translateY(3px) translateX(-5px);
-	}
-	33.33% {
-		transform: translateY(18px) translateX(-10px);
-	}
-	50% {
-		transform: translateY(-20px) translateX(20px);
-	}
-	66.67% {
-		transform: translateY(15px) translateX(-4px);
-	}
-	83.33% {
-		transform: translateY(-1px) translateX(15px);
-	}
-	100% {
-		transform: translateY(-20px) translateX(-20px);
-	}
+figure.effect-marley .fig_title,
+figure.effect-marley .fig_tag {
+	position: absolute;
+	right: 30px;
+	left: 30px;
+	padding: 10px 0;
 }
 
-.workingsample_container {
+figure.effect-marley .fig_tag {
+	bottom: 30px;
+	line-height: 1.5;
+	transform: translate3d(0, 100%, 0);
+}
+
+figure.effect-marley .fig_title {
+	top: 30px;
+	transition: transform 0.35s;
+	transform: translate3d(0, 20px, 0);
+}
+
+figure.effect-marley:hover .fig_title {
+	transform: translate3d(0, 0, 0);
+}
+
+figure.effect-marley .fig_title::after {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: #fff;
+	content: '';
+	transform: translate3d(0, 40px, 0);
+}
+
+figure.effect-marley .fig_title::after,
+figure.effect-marley .fig_tag {
+	opacity: 0;
+	transition: opacity 0.35s, transform 0.35s;
+}
+
+figure.effect-marley:hover .fig_title::after,
+figure.effect-marley:hover .fig_tag {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+.workingsample_2_container {
 	width: 100%;
 	height: 100%;
 	text-align: center;
 }
 
-.workingsample_contents {
+.workingsample_2_contents {
  	height: 100vh;
  	width: 1060px;
  	display: inline-block;
 	text-align: center;
 }
 
-.workingsample_info{
+.workingsample_2_info{
 	position:relative;
  	width: 350px;
  	height: 100vh;
@@ -130,7 +100,7 @@
 	text-align: center;
 }
 
-.workingsample_info > .info {
+.workingsample_2_info > .info {
 	position:absolute;
 	bottom: 400px;
 	left: 0;
@@ -144,7 +114,7 @@
 	border-bottom: #ffae3d solid 3px;
 }
 
-.workingsample {
+.workingsample_2 {
 	position:relative;
 	width: 350px;
 	height: 100vh;
@@ -153,7 +123,7 @@
 	cursor: pointer;
 }
 
-.workingsample > .sample_image {
+.workingsample_2 > .sample_image {
 	position:absolute;
 	bottom: 400px;
 	left: 0;
@@ -161,7 +131,7 @@
 	height: 300px;
 	margin: 0 25px;
 }
-.workingsample > .sample_title {
+.workingsample_2 > .sample_title {
 	position:absolute;
 	top: 550px;
 	left: 0;
@@ -171,68 +141,75 @@
 	opacity: 0;
 	transition: opacity 1s;
 }
-.workingsample:hover > .sample_title {
+.workingsample_2:hover > .sample_title {
 	opacity: 1;
 }
-
 </style>
 
-<div class="workingsample_container centerVH"><!--
+<div class="workingsample_2_container centerVH"><!--
 	info section 
-	--><section class="workingsample_info">
+	--><section class="workingsample_2_info">
 		<div class="info">
-			<span class="text_numbering">School Projects</span><br>
+			<span class="text_numbering">Main Projects</span><br>
 			<span class="text_title" style="font-size: 24px;">
-				Hongik University
+				SPACE Group inc.
 			</span><br>
 			Construction Design Projects
 		</div>
 	</section><!-- 
 	works section
-	--><section class="workingsample_contents">
+	--><section class="workingsample_2_contents">
 		<!-- 1. -->
-		<div class="workingsample" onclick="window.location='archi/schoolprojects/051_htuhr';">
-	 		<div class="sample_image">
-				<img src="/images/indexpage/051_htuhr_thumbnail.png">
-			</div>
-			<div class="sample_title">
-				<span class="text_numbering">No.051</span><br>
-				<span class="text_title">How to use<br>Han-river</span><br>
-				<span class="italic">Graduate Project</span><br>
-				<span class="hashtag">
-					#To human grid from logistics grid<br>
-					#Urban transportation system<br>
-					#New vision for giant city
-				</span>
+		<div class="workingsample_2" onclick="window.location='archi/schoolprojects/051_htuhr';">
+			<div class="sample_image">
+				<figure class="effect-marley">
+					<img src="/images/indexpage/051_htuhr_thumbnail.png">
+					<figcaption>
+						<div class="fig_title">
+							<span class="text_numbering">No.051</span><br>
+							<span class="text_title">How to use<br>Han-River</span>
+						</div>
+						<div class="fig_tag">
+							<span class="hashtag" style="color:white;">
+								#Graduate Project<br>
+								#Waterfront Development<br>
+								#Urban Transportation
+							</span>
+						</div>
+					</figcaption>
+				</figure>
 			</div>
 		</div>
 		
 		<!-- 2. -->
-<!-- 		<div class="workingsample" onclick="window.location='archi/mainprojects/109_dhob';"> -->
-		<div class="workingsample" onclick="window.location='#';">
-	 		<div class="sample_image">
-				<img src="/images/indexpage/109_dhob_thumbnail.png">
-			</div>
-			<div class="sample_title">
-				<span class="text_numbering">No.042</span><br>
-				<span class="text_title">DHOLIC<br>Company Building</span><br>
-				<span class="italic">Remodeling Project</span><br>
-				<span class="hashtag">
-					#Design Company Headquarters<br>
-					#Office and Commercial<br>
-					#Remodeling building award
-				</span>
+		<div class="workingsample_2" onclick="window.location='archi/schoolprojects/051_htuhr';">
+			<div class="sample_image">
+				<figure class="effect-marley">
+					<img src="/images/indexpage/051_htuhr_thumbnail.png">
+					<figcaption>
+						<div class="fig_title">
+							<span class="text_numbering">No.051</span><br>
+							<span class="text_title">How to use<br>Han-River</span>
+						</div>
+						<div class="fig_tag">
+							<span class="hashtag" style="color:white;">
+								#Graduate Project<br>
+								#Waterfront Development<br>
+								#Urban Transportation
+							</span>
+						</div>
+					</figcaption>
+				</figure>
 			</div>
 		</div>
 		
 		<!-- 3. -->
-<!-- 		<div class="workingsample" onclick="window.location='archi/mainprojects/101_jbto';"> -->
-		<div class="workingsample" onclick="window.location='#';">
+		<div class="workingsample_2" onclick="window.location='#';">
 	 		<div class="sample_image">
 				<img src="/images/indexpage/101_jbto_thumbnail.jpg">
 			</div>
 			<div class="sample_title">
-				<span class="text_numbering">No.041</span><br>
+				<span class="text_numbering">No.103</span><br>
 				<span class="text_title">Narakium Jungbu<br>Tax Office</span><br>
 				<span class="italic">New Construction</span><br>
 				<span class="hashtag">
