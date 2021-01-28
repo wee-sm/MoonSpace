@@ -16,7 +16,12 @@ public class AdminController {
 	
 	@GetMapping("")
 	public String projects(Model model) {
-		model.addAttribute("moonprojects", moonProjectsRepository.findAll());
+		if (moonProjectsRepository !=null) {
+			model.addAttribute("moonprojects", moonProjectsRepository.findAll());
+			model.addAttribute("moonprojectsIs", true);
+		} else {
+			model.addAttribute("moonprojectsIs", false);
+		}
 		return "admin/main";
 	}
 }
