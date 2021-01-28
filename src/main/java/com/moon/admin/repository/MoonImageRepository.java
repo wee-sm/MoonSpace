@@ -1,8 +1,8 @@
-package com.moon.repository;
+package com.moon.admin.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.moon.domain.MoonImages;
+import com.moon.admin.domain.MoonImages;
 
 public interface MoonImageRepository extends JpaRepository<MoonImages, Long> {
 

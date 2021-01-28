@@ -1,4 +1,4 @@
-package com.moon.domain;
+package com.moon.admin.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
