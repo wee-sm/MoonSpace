@@ -1,5 +1,6 @@
 package com.moon.web;
 
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
@@ -34,21 +35,24 @@ public class AdminController {
 	}
 
 	@GetMapping("/{id}")
-	public String projectControl(@PathVariable Long id, Model model) {
+	public String showProjectImages(@PathVariable Long id, Model model) {
 		MoonProject moonProject = moonProjectsRepository.findById(id).get();
 		if (moonProject != null) {
 			model.addAttribute("accessmessage", "success to access");
 			model.addAttribute("moonprojectIs", true);
 			
 			List<MoonImage> moonImages = moonProject.getMoonImages();
-			Map<String, String> iamges = new HashMap<>();
+			Map<Long, List<String>> iamges = new HashMap<>();
 			for (int i = 0; i < moonImages.size(); i++) {
 				Base64.Encoder encoder = Base64.getEncoder();
+				Long imageId = moonImages.get(i).getId();
 				String imageName = moonImages.get(i).getImageName();
 				String encoding = "data:image/png;base64," + encoder.encodeToString(moonImages.get(i).getImage());
-				iamges.put(imageName, encoding);
+				List<String> list=new ArrayList<String>();
+				list.add(imageName);
+				list.add(encoding);
+				iamges.put(imageId, list);
 			}
-
 			model.addAttribute("moonproject", moonProject);
 			model.addAttribute("moonimages", iamges);
 		} else {
