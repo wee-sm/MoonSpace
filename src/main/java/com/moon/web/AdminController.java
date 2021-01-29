@@ -6,13 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.moon.admin.repository.MoonProjectsRepository;
+import com.moon.admin.repository.MoonProjectRepository;
 
 @Controller
 @RequestMapping("admin")
 public class AdminController {
 	@Autowired
-	private MoonProjectsRepository moonProjectsRepository;
+	private MoonProjectRepository moonProjectsRepository;
 	
 	@GetMapping("")
 	public String projects(Model model) {

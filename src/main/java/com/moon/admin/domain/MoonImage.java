@@ -13,15 +13,14 @@ import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 @DynamicUpdate
-public class MoonImages {
+public class MoonImage {
 	@Id
 	@GeneratedValue
-	@Column(nullable = false, unique = true)
 	private Long ino;
 
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_project_for_image"))
-	private MoonProjects moonProjects;
+	private MoonProject moonProjects;
 
 	@Lob
 	private byte[] image;
@@ -29,4 +28,14 @@ public class MoonImages {
 	@Column(nullable = false, unique = true)
 	private String imageName;
 
+	public MoonImage() {
+		super();
+	}
+
+	public MoonImage(MoonProject moonProjects, byte[] image, String imageName) {
+		super();
+		this.moonProjects = moonProjects;
+		this.image = image;
+		this.imageName = imageName;
+	}
 }

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{{> include/header}}
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div style="border:solid;padding:10px;">
+					<h4>Add New Project</h4>
+					<form method="POST" action="/project">
+				        <input type="number" name="pno" placeholder="Project No" required>
+				        <br>
+				        <input type="text" name="title1" placeholder="Title1" required>
+				        <br>
+				        <input type="text" name="title2" placeholder="Title2" required>
+				        <br>
+				        <input type="text" name="htmlIndex" placeholder="htmlIndex" required>
+				        <br>
+				        <select name="projectTypeId" required>
+							{{#projectTypes}}
+					        	<option value="{{Id}}">{{Type}}</option>
+							{{/projectTypes}}
+				        </select>
+				        <br>
+				        <select name="workingTypeId" required>
+							{{#workingTypes}}
+					        	<option value="{{Id}}">{{type}}</option>
+							{{/workingTypes}}
+				        </select>
+				        <br>
+					    <button type="submit">ADD</button>
+					</form>
+				</div>
+				<div style="padding:10px;">
+					<h3>Projects</h3>
+					<div class="row">
+						{{#workingTypes}}
+						<div class="col">
+							<h4>{{type}}</h4>
+							{{#projects}}
+								<span class="text_numbering">No.{{pno}}</span><br>
+								<a href="/projectimages/{{Id}}">
+									{{title1}} {{title2}}<br>
+									{{projectType.type}} {{workingType.type}}<br>
+									{{pno}}_{{htmlIndex}}.html
+								</a>
+								<form method="GET" action="/project/{{Id}}/updateForm">
+									<button type="submit">UPDATE</button>
+								</form>
+								<form method="POST" action="/project/{{Id}}">
+									<input type="hidden" name="_method" value="DELETE">
+									<button type="submit">DELETE</button>
+								</form>
+								<br>
+							{{/projects}}
+						</div>
+						{{/workingTypes}}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div style="border:solid;padding:10px;">
+					<h4>Create New Project Type</h4>
+					<form method="POST" action="/projecttype">
+						<input type="hidden" name="_method" value="PUT">
+				        <input type="number" name="tno" placeholder="Type No" required><br>
+				        <input type="text" name="type" placeholder="Project Type" required><br>
+					    <button type="submit">Create</button>
+					</form>
+				</div>
+				<div style="padding:10px;">
+					<h3>Project Types</h3>
+					{{#projectTypes}}
+						<a><span class="text_numbering">{{tno}}</span> {{type}}</a>
+						<form method="POST" action="/projecttype/{{Id}}">
+							<input type="hidden" name="_method" value="DELETE">
+							<button type="submit">DELETE</button>
+						</form>
+					{{/projectTypes}}
+				</div>
+			</div>
+			<div class="col">
+				<div style="border:solid;padding:10px;">
+					<h4>Add New Working Type</h4>
+					<form method="POST" action="/workingtype">
+						<input type="hidden" name="_method" value="PUT">
+				        <input type="number" name="wno" placeholder="Working No" required><br>
+				        <input type="text" name="type" placeholder="Working Type" required><br>
+					    <button type="submit">Create</button>
+					</form>
+				</div>
+				<div style="padding:10px;">
+					<h3>Working Types</h3>
+					{{#workingTypes}}
+						<a><span class="text_numbering">{{wno}}</span> {{type}}</a>
+						<form method="POST" action="/workingtype/{{Id}}">
+							<input type="hidden" name="_method" value="DELETE">
+							<button type="submit">DELETE</button>
+						</form>
+					{{/workingTypes}}
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
