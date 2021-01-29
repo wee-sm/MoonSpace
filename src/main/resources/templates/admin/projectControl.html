@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Moon</title>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+	<div>
+		<a href="/admin">back to projects list</a>
+		<br>
+		{{accessmessage}}
+	</div>
+	{{#moonprojectIs}}
+		<div>
+			{{#moonproject}}
+				Id: {{id}}<br>
+				Pno: {{pno}}<br>
+				Name: {{projectName}}<br>
+				<div>
+					<h4>Add New Image</h4>
+					<form method="POST" action="/moonimage" enctype="multipart/form-data">
+						<input type="hidden" name="_method" value="PUT">
+						<input type="hidden" name="moonProjectId" value="{{id}}">
+						<input type="text" name="imageName" placeholder="Image Name">
+						<input id = "imageUpLoader" name="image" type="file" accept="image/*" required />
+						<button type="submit">UPLOAD</button>
+						<br>
+						<img id="thumbnail" alt="Image Preview" style="height:150px"/>
+					</form>
+				</div>
+			{{/moonproject}}
+		</div>
+		<div>
+			<h4>Images</h4>
+			{{#moonimages.entrySet}}
+				<img src="{{value}}" style="max-height:150px;max-width:150px">
+	 				{{key}}
+				<br>
+			{{/moonimages.entrySet}}
+		</div>
+	{{/moonprojectIs}}
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#imageUpLoader").change(function(){
+				showImageThumbnail(this);
+			});
+		});
+		
+		function showImageThumbnail(fileInput){
+			file = fileInput.files[0];
+			reader = new FileReader();
+			reader.onload = function(e) {
+				$("#thumbnail").attr('src', e.target.result);
+			};
+			reader.readAsDataURL(file);
+		}
+	</script>
+</body>
+</html>

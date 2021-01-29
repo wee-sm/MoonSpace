@@ -11,7 +11,7 @@
 		<ul>
 			{{#moonprojectsIs}}
 				{{#moonprojects}}
-				<li><a href="/moonproject">{{pno}}{{projectName}}</a></li>
+				<li><a href="/admin/{{id}}">{{pno}}{{projectName}}</a></li>
 				{{/moonprojects}}
 			{{/moonprojectsIs}}
 		</ul>
@@ -19,6 +19,7 @@
 	<div>
 	<h4>add moonproject</h4>
 		<form method="POST" action="/moonproject">
+			<input type="text" name="pno" placeholder="Project No." required>
 			<input type="text" name="projectName" placeholder="Project Name" required>
 		    <button type="submit">ADD</button>
 		</form>

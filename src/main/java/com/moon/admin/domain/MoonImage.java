@@ -1,6 +1,5 @@
 package com.moon.admin.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
@@ -12,9 +11,6 @@ import org.hibernate.annotations.DynamicUpdate;
 @Entity
 @DynamicUpdate
 public class MoonImage extends MoonAbstractEntity {
-	@Column(nullable = false, unique = true)
-	private Long ino;
-
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_project_for_image"))
 	private MoonProject moonProjects;
@@ -22,7 +18,6 @@ public class MoonImage extends MoonAbstractEntity {
 	@Lob
 	private byte[] image;
 
-	@Column(nullable = false, unique = true)
 	private String imageName;
 
 	public MoonImage() {
@@ -35,4 +30,29 @@ public class MoonImage extends MoonAbstractEntity {
 		this.image = image;
 		this.imageName = imageName;
 	}
+
+	public MoonProject getMoonProjects() {
+		return moonProjects;
+	}
+
+	public void setMoonProjects(MoonProject moonProjects) {
+		this.moonProjects = moonProjects;
+	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+	public String getImageName() {
+		return imageName;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
+
 }

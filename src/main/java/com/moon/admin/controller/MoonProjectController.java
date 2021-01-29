@@ -12,7 +12,7 @@ import com.moon.admin.repository.MoonProjectRepository;
 
 @Controller
 @RequestMapping("moonproject")
-public class MoonProjectsController {
+public class MoonProjectController {
 	@Autowired
 	private MoonProjectRepository moonProjectRepository;
 	
