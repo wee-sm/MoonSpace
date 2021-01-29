@@ -3,8 +3,6 @@ package com.moon.admin.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
@@ -13,9 +11,8 @@ import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 @DynamicUpdate
-public class MoonImage {
-	@Id
-	@GeneratedValue
+public class MoonImage extends MoonAbstractEntity {
+	@Column(nullable = false, unique = true)
 	private Long ino;
 
 	@ManyToOne

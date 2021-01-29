@@ -5,8 +5,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 
@@ -14,9 +12,8 @@ import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 @DynamicUpdate
-public class MoonProject {
-	@Id
-	@GeneratedValue
+public class MoonProject extends MoonAbstractEntity {
+	@Column(nullable = false, unique = true)
 	private Long pno;
 
 	@Column(nullable = false)
