@@ -35,7 +35,7 @@ public class AdminController {
 	}
 
 	@GetMapping("/{id}")
-	public String showProjectImages(@PathVariable Long id, Model model) {
+	public String showImages(@PathVariable Long id, Model model) {
 		MoonProject moonProject = moonProjectsRepository.findById(id).get();
 		if (moonProject != null) {
 			model.addAttribute("accessmessage", "success to access");
@@ -59,6 +59,6 @@ public class AdminController {
 			model.addAttribute("accessmessage", "fail to access");
 			model.addAttribute("moonprojectIs", false);
 		}
-		return "admin/projectControl";
+		return "admin/images";
 	}
 }

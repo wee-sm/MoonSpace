@@ -3,6 +3,11 @@
 <head>
 	{{> include/header}}
 	<script src="/custom/js/weo_script.js"></script>
+	<style type="text/css">
+		#thumbnail {
+			display:none;
+		}
+	</style>
 </head>
 <body>
 	<div>
@@ -21,8 +26,9 @@
 					<form class="addimage" method="POST" action="/moonimage" enctype="multipart/form-data">
 						<input type="hidden" name="_method" value="PUT">
 						<input type="hidden" name="moonProjectId" value="{{id}}">
-						<input type="text" name="imageName" placeholder="Image Name">
-						<input id = "imageUpLoader" name="image" type="file" accept="image/*" required />
+						<input id="imageName" type="text" name="imageName" placeholder="Image Name">
+						<input id = "imageUpLoader" name="image" type="file" accept="image/*" multiple="multiple" required />
+						<br>
 						<button type="submit">UPLOAD</button>
 						<br>
 						<img id="thumbnail" alt="Image Preview" style="height:150px"/>
@@ -48,14 +54,21 @@
 		$(document).ready(function(){
 			$("#imageUpLoader").change(function(){
 				showImageThumbnail(this);
+				setNamebyFile(this);
 			});
 		});
+		
+		function setNamebyFile(fileInput){
+			fileName = fileInput.files[0].name;
+			$('#imageName').val(fileName);
+		}
 		
 		function showImageThumbnail(fileInput){
 			file = fileInput.files[0];
 			reader = new FileReader();
 			reader.onload = function(e) {
 				$("#thumbnail").attr('src', e.target.result);
+				$("#thumbnail").show();
 			};
 			reader.readAsDataURL(file);
 		}

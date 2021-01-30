@@ -44,9 +44,11 @@ public class MoonImageController {
 	}
 
 	@DeleteMapping("/{moonimageId}")
-	public String delete(@PathVariable Long moonimageId) {
+	public String delete(@PathVariable Long moonimageId, HttpServletRequest request) {
 		MoonImage targetImage = moonImageRepository.findById(moonimageId).get();
 		moonImageRepository.delete(targetImage);
-		return "redirect:/admin";
+		
+		String referer = request.getHeader("Referer");
+		return "redirect:" + referer;
 	}
 }
