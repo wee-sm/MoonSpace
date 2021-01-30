@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,5 +41,12 @@ public class MoonImageController {
 
 		String referer = request.getHeader("Referer");
 		return "redirect:" + referer;
+	}
+
+	@DeleteMapping("/{moonimageId}")
+	public String delete(@PathVariable Long moonimageId) {
+		MoonImage targetImage = moonImageRepository.findById(moonimageId).get();
+		moonImageRepository.delete(targetImage);
+		return "redirect:/admin";
 	}
 }

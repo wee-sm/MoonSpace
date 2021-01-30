@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	{{> include/header}}
+	<style>
+		.mySlides {height:500px;text-align:center;color:white;margin:auto;}
+		.imgWaper {height:435px;max-width:100%;}
+		img {max-height:100%;max-width:100%;}
+	</style>
+	</head>
+	
+	<body>
+		{{> include/navigation}}
+		{{> include/forarchiprojects/projectheader}}
+		<div class="container layout">
+			<div class="row">
+				<div class="col">
+					<div class="mySlides">
+						<img src="{{dh_01.png}}" alt="pic1">
+					</div>
+					<div class="mySlides">
+						<img src="{{dh_02.png}}" alt="pic1">
+					</div>
+					<div class="mySlides">
+						<img src="{{dh_03.png}}" alt="pic1">
+					</div>
+				</div>
+			</div>
+			{{> include/forarchiprojects/slide_nav}}
+		</div>
+		{{> include/forarchiprojects/projectfooter}}
+		{{> include/footer}}
+	</body>
+</html>

@@ -56,4 +56,8 @@ public class MoonProject extends MoonAbstractEntity {
 		this.moonImages = moonImages;
 	}
 
+	public void update(MoonProject updatemoonproject) {
+		this.pno = updatemoonproject.getPno();
+		this.projectName = updatemoonproject.getProjectName();
+	}
 }
