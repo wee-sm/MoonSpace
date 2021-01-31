@@ -409,7 +409,7 @@
 						</div>
 					</div>
 					<div class="imgbox">
-						<img src="{{moonimages.cj_01}}">
+						<img src="{{moonimages.cj_01-jpg}}">
 					</div>
 				</div>
 			</div>
@@ -445,8 +445,8 @@
 						</div>
 					</div>
 					<div class="imgbox">
-						<img src="/images/mainprojects/111_cjcf/cj_01_2.png">
-						<img src="/images/mainprojects/111_cjcf/cj_01_1.png">
+						<img src="{{moonimages.cj_01_2-png}}">
+						<img src="{{moonimages.cj_01_1-png}}">
 					</div>
 				</div>
 			</div>
@@ -469,7 +469,7 @@
 							</span>
 						</div>
 					</div>
-					<div class="background" style="background-image: url('/images/mainprojects/111_cjcf/cj_02.png')"></div>
+					<div class="background" style="background-image: url({{moonimages.cj_02-png}})"></div>
 				</div>
 			</div>
     	
@@ -500,10 +500,10 @@
 							</div>
 						</div>
 						<div class="imgbox">
-							<img src="/images/mainprojects/111_cjcf/cj_05_1.png">
+							<img src="{{moonimages.cj_05_1-png}}">
 						</div>
 					</div>
-					<div class="background" style="background-image: url('/images/mainprojects/111_cjcf/cj_05.png')"></div>
+					<div class="background" style="background-image: url({{moonimages.cj_05-png}})"></div>
 				</div>
 			</div>
 			
@@ -512,7 +512,7 @@
 			<div class="swiper-slide">
 				<div class="slide6_wapper">
 					<div class="imgbox">
-						<img src="/images/mainprojects/111_cjcf/cj_04_2.png">
+						<img src="{{moonimages.cj_04_2-png}}">
 						<div class="textbox">
 							Hanger and Angle support Detail<br>(with Doctor-bar)<br>
 						</div>
@@ -545,7 +545,7 @@
 							</span>
 						</div>
 					</div>
-					<div class="background" style="background-image: url('/images/mainprojects/111_cjcf/cj_06.png')"></div>
+					<div class="background" style="background-image: url({{moonimages.cj_06-png}})"></div>
 				</div>
 			</div>
 			
@@ -553,7 +553,7 @@
 			<div class="swiper-slide">
 				<div class="slide5_wapper">
 					<div class="imgbox">
-						<img src="/images/mainprojects/111_cjcf/cj_03.png">
+						<img src="{{moonimages.cj_03-png}}">
 					</div>
 					<div class="textbox">
 						<div style="padding: 0 0 5px 0;">
@@ -605,7 +605,13 @@
 							<div class="otherimage_container centerVH">
 								<section class="otherimage_contents">
 									<div class="otherimage_wrap" id="otherimage_wrap">
-									<!-- JS -->
+										{{#moonotherimages.entrySet}}
+											<div class="otherimage">
+												<button data-toggle="modal" data-target="#modalbutton_{{value.0}}">
+													<img id="otherimage_{{value.0}}" src="{{value.1}}">
+												</button>
+											</div>
+										{{/moonotherimages.entrySet}}
 									</div>
 								</section>
 							</div>
@@ -651,14 +657,25 @@
 							</table>
 						</div>
 					</div>
-					<div class="background" style="background-image: url('/images/mainprojects/111_cjcf/otherimages/cj_92.png')"></div>
+					<div class="background" style="background-image: url({{moonimages.cj_99-png}})"></div>
 				</div>
 			</div>
 		</div>
 	</div>
+	
 	<!-- Modal -->
 	<div id="modal_wapper">
-		<!-- JS -->
+		{{#moonotherimages.entrySet}}
+			<div class="modal fade" id="modalbutton_{{value.0}}">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<button data-dismiss="modal">
+							<img class="modal_img" src="{{value.1}}">
+						</button>
+					</div>
+				</div>
+			</div>
+		{{/moonotherimages.entrySet}}
 	</div>
 	
 	<script type="text/javascript">
@@ -688,26 +705,6 @@
 				enabled: true,
 			},
 		})
-		
-		// other image and modal html
-		for (i = 71; i < 91; i++) {
-			imagehtml = ''; 
-			imagehtml += '<div class="otherimage">';
-			imagehtml += '<button data-toggle="modal" data-target="#img_' + i + '_Modal">';
-			imagehtml += '<img id="otherimage_' + i + '" src="/images/mainprojects/111_cjcf/otherimages/cj_' + i + '.png">';
-			imagehtml += '</button></div>';
-			$("#otherimage_wrap").append(imagehtml);
-			
-			modalhtml = '';
-			modalhtml += '<div class="modal fade" id="img_' + i + '_Modal">';
-			modalhtml += '<div class="modal-dialog modal-lg">';
-			modalhtml += '<div class="modal-content">';
-			modalhtml += '<button data-dismiss="modal">';
-			modalhtml += '<img class="modal_img" src="/images/mainprojects/111_cjcf/otherimages/cj_' + i + '.png">';
-			modalhtml += '</button></div></div></div>'
-			
-			$("#modal_wapper").append(modalhtml);
-		}
 	</script>
 	{{> include/footer}}
 </body>

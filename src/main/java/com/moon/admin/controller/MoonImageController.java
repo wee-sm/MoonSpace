@@ -26,13 +26,18 @@ public class MoonImageController {
 	private MoonProjectRepository moonProjectRepository;
 
 	@PutMapping("")
-	public String create(@RequestParam("moonProjectId") Long moonProjectId, @RequestParam("image") MultipartFile image,
-			@RequestParam("imageName") String imageName, HttpServletRequest request) {
+	public String create(
+			@RequestParam("moonProjectId") Long moonProjectId,
+			@RequestParam("image") MultipartFile image,
+			@RequestParam("imageName") String imageName,
+			@RequestParam("imageGroup") int imageGroup,
+			HttpServletRequest request) {
 		try {
 			MoonImage newMoonImage = new MoonImage();
 			newMoonImage.setMoonProjects(moonProjectRepository.findById(moonProjectId).get());
 			newMoonImage.setImage(image.getBytes());
 			newMoonImage.setImageName(imageName);
+			newMoonImage.setImageGroup(imageGroup);
 			moonImageRepository.save(newMoonImage);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

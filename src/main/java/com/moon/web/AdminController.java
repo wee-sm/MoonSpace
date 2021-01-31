@@ -37,24 +37,29 @@ public class AdminController {
 	@GetMapping("/{id}")
 	public String showImages(@PathVariable Long id, Model model) {
 		MoonProject moonProject = moonProjectsRepository.findById(id).get();
+		
 		if (moonProject != null) {
 			model.addAttribute("accessmessage", "success to access");
 			model.addAttribute("moonprojectIs", true);
-			
 			List<MoonImage> moonImages = moonProject.getMoonImages();
-			Map<Long, List<String>> iamges = new HashMap<>();
+			
+			Map<Long, ArrayList<Object>> iamgesMap = new HashMap<>();
+			Base64.Encoder encoder = Base64.getEncoder();
+			
 			for (int i = 0; i < moonImages.size(); i++) {
-				Base64.Encoder encoder = Base64.getEncoder();
-				Long imageId = moonImages.get(i).getId();
-				String imageName = moonImages.get(i).getImageName();
-				String encoding = "data:image/png;base64," + encoder.encodeToString(moonImages.get(i).getImage());
-				List<String> list=new ArrayList<String>();
-				list.add(imageName);
-				list.add(encoding);
-				iamges.put(imageId, list);
+				MoonImage moonimage = moonImages.get(i);
+				Long imageId = moonimage.getId();
+				
+				List<Object> imageData = new ArrayList<Object>();
+				imageData.add(moonimage.getImageName());
+				imageData.add(moonimage.getImageGroup());
+				imageData.add("data:image/png;base64," + encoder.encodeToString(moonimage.getImage()));
+				
+				iamgesMap.put(imageId, (ArrayList<Object>) imageData);
+				model.addAttribute("moonproject", moonProject);
 			}
-			model.addAttribute("moonproject", moonProject);
-			model.addAttribute("moonimages", iamges);
+			
+			model.addAttribute("moonimages", iamgesMap);
 		} else {
 			model.addAttribute("accessmessage", "fail to access");
 			model.addAttribute("moonprojectIs", false);

@@ -16,7 +16,7 @@ public class MoonProject extends MoonAbstractEntity {
 	@Column(nullable = false, unique = true)
 	private Long pno;
 
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String projectName;
 
 	@OneToMany(mappedBy = "moonProjects", cascade = CascadeType.ALL)

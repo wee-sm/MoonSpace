@@ -7,6 +7,9 @@
 		#thumbnail {
 			display:none;
 		}
+		.imgbox {
+			display: inline-block;
+		}
 	</style>
 </head>
 <body>
@@ -26,8 +29,10 @@
 					<form class="addimage" method="POST" action="/moonimage" enctype="multipart/form-data">
 						<input type="hidden" name="_method" value="PUT">
 						<input type="hidden" name="moonProjectId" value="{{id}}">
-						<input id="imageName" type="text" name="imageName" placeholder="Image Name">
+						<input id = "imageName" type="text" name="imageName" placeholder="Image Name">
 						<input id = "imageUpLoader" name="image" type="file" accept="image/*" multiple="multiple" required />
+						<br>
+						<input id = "imageGroup" type="number" name="imageGroup" placeholder="Image Group">
 						<br>
 						<button type="submit">UPLOAD</button>
 						<br>
@@ -39,13 +44,16 @@
 		<div>
 			<h4>Images</h4>
 			{{#moonimages.entrySet}}
-				id: {{key}}<br>
-				Image Name: {{value.0}}<br>
-				<img src="{{value.1}}" style="max-height:150px;max-width:150px"><br>
-				<form method="POST" action="/moonimage/{{key}}">
-					<input type="hidden" name="_method" value="DELETE">
-					<button type="submit">DELETE</button>
-				</form>
+				<div class="imgbox">
+					id: {{key}}<br>
+					Image Name: {{value.0}}<br>
+					Image Group: {{value.1}}<br>
+					<img src="{{value.2}}" style="max-height:150px;max-width:150px"><br>
+					<form method="POST" action="/moonimage/{{key}}">
+						<input type="hidden" name="_method" value="DELETE">
+						<button type="submit">DELETE</button>
+					</form>
+				</div>
 			{{/moonimages.entrySet}}
 		</div>
 	{{/moonprojectIs}}
@@ -59,7 +67,7 @@
 		});
 		
 		function setNamebyFile(fileInput){
-			fileName = fileInput.files[0].name;
+			fileName = fileInput.files[0].name.replace(/\./g, '-');
 			$('#imageName').val(fileName);
 		}
 		
