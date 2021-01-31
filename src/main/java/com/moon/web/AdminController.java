@@ -25,45 +25,31 @@ public class AdminController {
 
 	@GetMapping("")
 	public String projects(Model model) {
-		if (moonProjectsRepository != null) {
-			model.addAttribute("moonprojects", moonProjectsRepository.findAll());
-			model.addAttribute("moonprojectsIs", true);
-		} else {
-			model.addAttribute("moonprojectsIs", false);
-		}
+		model.addAttribute("moonprojects", moonProjectsRepository.findAll());
 		return "admin/projects";
 	}
 
 	@GetMapping("/{id}")
 	public String showImages(@PathVariable Long id, Model model) {
 		MoonProject moonProject = moonProjectsRepository.findById(id).get();
+		List<MoonImage> moonImages = moonProject.getMoonImages();
 		
-		if (moonProject != null) {
-			model.addAttribute("accessmessage", "success to access");
-			model.addAttribute("moonprojectIs", true);
-			List<MoonImage> moonImages = moonProject.getMoonImages();
+		Map<Long, ArrayList<Object>> iamgesMap = new HashMap<>();
+		Base64.Encoder encoder = Base64.getEncoder();
+		
+		for (int i = 0; i < moonImages.size(); i++) {
+			MoonImage moonimage = moonImages.get(i);
+			Long imageId = moonimage.getId();
 			
-			Map<Long, ArrayList<Object>> iamgesMap = new HashMap<>();
-			Base64.Encoder encoder = Base64.getEncoder();
-			
-			for (int i = 0; i < moonImages.size(); i++) {
-				MoonImage moonimage = moonImages.get(i);
-				Long imageId = moonimage.getId();
-				
-				List<Object> imageData = new ArrayList<Object>();
-				imageData.add(moonimage.getImageName());
-				imageData.add(moonimage.getImageGroup());
-				imageData.add("data:image/png;base64," + encoder.encodeToString(moonimage.getImage()));
-				
-				iamgesMap.put(imageId, (ArrayList<Object>) imageData);
-				model.addAttribute("moonproject", moonProject);
-			}
-			
-			model.addAttribute("moonimages", iamgesMap);
-		} else {
-			model.addAttribute("accessmessage", "fail to access");
-			model.addAttribute("moonprojectIs", false);
+			List<Object> imageData = new ArrayList<Object>();
+			imageData.add(moonimage.getImageName());
+			imageData.add(moonimage.getImageGroup());
+			imageData.add("data:image/png;base64," + encoder.encodeToString(moonimage.getImage()));
+			iamgesMap.put(imageId, (ArrayList<Object>) imageData);
 		}
+
+		model.addAttribute("moonproject", moonProject);
+		model.addAttribute("moonimages", iamgesMap);
 		return "admin/images";
 	}
 }

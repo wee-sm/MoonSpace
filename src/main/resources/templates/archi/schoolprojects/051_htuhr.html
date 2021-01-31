@@ -369,7 +369,7 @@
 						</div>
 						</div>
 					</div>
-					<div class="background" style="background-image: url('/images/schoolprojects/051_htuhr/otherimages/htuhr_50.JPG')"></div>
+					<div class="background" style="background-image: url('{{moonimages.htuhr_50-JPG}}')"></div>
 				</div>
 			</div>
 			
@@ -377,7 +377,7 @@
 			<div class="swiper-slide">
 				<div class="slide1_wapper">
 					<div class="imgbox">
-						<img src="/images/schoolprojects/051_htuhr/htuhr_01.png">
+						<img src="{{moonimages.htuhr_01-png}}">
 					</div>
 					<div class="textbox">
 						<div style="padding: 0 0 5px 0;">
@@ -419,7 +419,7 @@
 			<div class="swiper-slide">
 				<div class="slide2_wapper">
 					<div class="imgbox">
-						<img src="/images/schoolprojects/051_htuhr/htuhr_11.png">
+						<img src="{{moonimages.htuhr_11-png}}">
 					</div>
 					<div class="textbox">
 						<p>Second, when I compared the volume of distribution in Seoul
@@ -437,7 +437,7 @@
 			<div class="swiper-slide">
 				<div class="slide2_wapper">
 					<div class="imgbox">
-						<img src="/images/schoolprojects/051_htuhr/htuhr_12.png">
+						<img src="{{moonimages.htuhr_12-png}}">
 					</div>
 					<div class="textbox">
 						<p>To evaluate the feasibility of this hypothesis, I selected
@@ -457,7 +457,7 @@
 			<div class="swiper-slide">
 				<div class="slide3_wapper">
 					<div class="imgbox">
-						<img src="/images/schoolprojects/051_htuhr/htuhr_02.png">
+						<img src="{{moonimages.htuhr_02-png}}">
 					</div>
 					<div class="textbox">
 						<div>
@@ -493,7 +493,7 @@
 			<div class="swiper-slide">
 				<div class="slide4_wapper">
 					<div class="imgbox">
-						<img src="/images/schoolprojects/051_htuhr/htuhr_13.png">
+						<img src="{{moonimages.htuhr_13-png}}">
 					</div>
 					<div class="textbox">
 						<p>For extending the meaning of the distribution in the port,
@@ -509,8 +509,8 @@
 			<div class="swiper-slide">
 				<div class="slide5_wapper">
 					<div class="imgbox">
-						<img src="/images/schoolprojects/051_htuhr/htuhr_14.png">
-						<img src="/images/schoolprojects/051_htuhr/htuhr_15.png">
+						<img src="{{moonimages.htuhr_14-png}}">
+						<img src="{{moonimages.htuhr_15-png}}">
 					</div>
 					<div class="textbox">
 						<div>
@@ -527,8 +527,8 @@
 			<div class="swiper-slide">
 				<div class="slide6_wapper">
 					<div class="imgbox">
-						<img src="/images/schoolprojects/051_htuhr/htuhr_17.png">
-						<img src="/images/schoolprojects/051_htuhr/htuhr_16.png">
+						<img src="{{moonimages.htuhr_17-png}}">
+						<img src="{{moonimages.htuhr_16-png}}">
 					</div>
 				</div>
 			</div>
@@ -541,7 +541,13 @@
 							<div class="otherimage_container centerVH">
 								<section class="otherimage_contents">
 									<div class="otherimage_wrap" id="otherimage_wrap">
-										<!-- JS -->
+										{{#moonotherimages.entrySet}}
+											<div class="otherimage">
+												<button data-toggle="modal" data-target="#modalbutton_{{value.0}}">
+													<img id="otherimage_{{value.0}}" src="{{value.1}}">
+												</button>
+											</div>
+										{{/moonotherimages.entrySet}}
 									</div>
 								</section>
 							</div>
@@ -562,14 +568,24 @@
 							through a distribution of space, as the image on the first page.
 						</div>
 					</div>
-					<div class="background" style="background-image: url('/images/schoolprojects/051_htuhr/htuhr_03.png')"></div>
+					<div class="background" style="background-image: url('{{moonimages.htuhr_03-png}}')"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- Modal -->
 	<div id="modal_wapper">
-		<!-- JS -->
+		{{#moonotherimages.entrySet}}
+			<div class="modal fade" id="modalbutton_{{value.0}}">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<button data-dismiss="modal">
+							<img class="modal_img" src="{{value.1}}">
+						</button>
+					</div>
+				</div>
+			</div>
+		{{/moonotherimages.entrySet}}
 	</div>
 
 	<script type="text/javascript">
@@ -599,26 +615,6 @@
 				enabled : true,
 			},
 		})
-
-		// other image and modal html
-		for (i = 51; i < 63; i++) {
-			imagehtml = '';
-			imagehtml += '<div class="otherimage">';
-			imagehtml += '<button data-toggle="modal" data-target="#img_' + i + '_Modal">';
-			imagehtml += '<img id="otherimage_' + i + '" src="/images/schoolprojects/051_htuhr/otherimages/htuhr_' + i + '.JPG">';
-			imagehtml += '</button></div>';
-			$("#otherimage_wrap").append(imagehtml);
-
-			modalhtml = '';
-			modalhtml += '<div class="modal fade" id="img_' + i + '_Modal">';
-			modalhtml += '<div class="modal-dialog modal-lg">';
-			modalhtml += '<div class="modal-content">';
-			modalhtml += '<button data-dismiss="modal">';
-			modalhtml += '<img class="modal_img" src="/images/schoolprojects/051_htuhr/otherimages/htuhr_' + i + '.JPG">';
-			modalhtml += '</button></div></div></div>'
-
-			$("#modal_wapper").append(modalhtml);
-		}
 	</script>
 	{{> include/footer}}
 </body>

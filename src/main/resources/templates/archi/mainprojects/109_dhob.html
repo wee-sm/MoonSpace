@@ -259,7 +259,7 @@
 				<div class="content_wapper">
 					<div class="content centerVH">
 						<div class="content_background">
-							<img src="/images/mainprojects/109_dhob/dh_11.png">
+							<img src="{{moonimages.dh_11-png}}">
 						</div>
 						<div class="content_text1">
 							<div style="padding: 0 0 5px 0;">
@@ -295,14 +295,14 @@
 					<div class="content centerVH">
 						<div class="content_background">
 							<div class="imgbox1">
-								<img src="/images/mainprojects/109_dhob/dh_14.png">
+								<img src="{{moonimages.dh_14-png}}">
 							</div>
-							<img src="/images/mainprojects/109_dhob/dh_12.png">
+							<img src="{{moonimages.dh_12-png}}">
 						</div>
 						<div class="content_text2">
 							<span style="font-family: 'Playfair Display', serif; font-weight:900; font-size: 20px;">Facade Design</span><br>
 							<div style="padding: 10px 0 0 0; border-top: solid 1px">
-								<img src="/images/mainprojects/109_dhob/dh_13.png" style="width: 100%;">
+								<img src="{{moonimages.dh_13-png}}" style="width: 100%;">
 							</div>
 							<div style="padding: 10px 0 0 0;">
 								<span>
@@ -318,7 +318,6 @@
 						</div>
 					</div>
 				</div>
-				
 			</div>
 			
 			
@@ -327,9 +326,9 @@
 					<div class="content centerVH">
 						<div class="content_background">
 							<div class="imgbox2">
-								<img src="/images/mainprojects/109_dhob/dh_15.png">
+								<img src="{{moonimages.dh_15-png}}">
 							</div>
-							<img src="/images/mainprojects/109_dhob/dh_12.png">
+							<img src="{{moonimages.dh_12-png}}">
 						</div>
 						<div class="content_text3">
 							<div style="position: absolute; left: 60px; top: 60px; width: 400px; background-color: rgba(255, 255, 255, 0.5); padding: 10px;">
@@ -352,7 +351,7 @@
 									<span class="text_numbering">
 										Facade Detail<br>
 									</span>
-									<img src="/images/mainprojects/109_dhob/dh_16.png"><br>
+									<img src="{{moonimages.dh_16-png}}"><br>
 									<span class="italic">
 										Tilted windows and reinforcement details
 									</span>
@@ -380,7 +379,13 @@
 							<div class="otherimage_container centerVH">
 								<section class="otherimage_contents">
 									<div class="otherimage_wrap" id="otherimage_wrap">
-									<!-- JS -->
+										{{#moonotherimages.entrySet}}
+											<div class="otherimage">
+												<button data-toggle="modal" data-target="#modalbutton_{{value.0}}">
+													<img id="otherimage_{{value.0}}" src="{{value.1}}">
+												</button>
+											</div>
+										{{/moonotherimages.entrySet}}
 									</div>
 								</section>
 							</div>
@@ -427,7 +432,7 @@
 							</table>
 						</div>
 					</div>
-					<div class="background" style="background-image: url('/images/mainprojects/109_dhob/otherimages/dh_60.png')"></div>
+					<div class="background" style="background-image: url('{{moonimages.dh_60-png}}')"></div>
 				</div>
 			</div>
 			
@@ -435,7 +440,17 @@
 	</div>
 	<!-- Modal -->
 	<div id="modal_wapper">
-		<!-- JS -->
+		{{#moonotherimages.entrySet}}
+			<div class="modal fade" id="modalbutton_{{value.0}}">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<button data-dismiss="modal">
+							<img class="modal_img" src="{{value.1}}">
+						</button>
+					</div>
+				</div>
+			</div>
+		{{/moonotherimages.entrySet}}
 	</div>
 	
 	<script type="text/javascript">
@@ -465,26 +480,6 @@
 				enabled: true,
 			},
 		})
-		
-		// other image and modal html
-		for (i = 51; i < 71; i++) {
-			imagehtml = ''; 
-			imagehtml += '<div class="otherimage">';
-			imagehtml += '<button data-toggle="modal" data-target="#img_' + i + '_Modal">';
-			imagehtml += '<img id="otherimage_' + i + '" src="/images/mainprojects/109_dhob/otherimages/dh_' + i + '.png">';
-			imagehtml += '</button></div>';
-			$("#otherimage_wrap").append(imagehtml);
-			
-			modalhtml = '';
-			modalhtml += '<div class="modal fade" id="img_' + i + '_Modal">';
-			modalhtml += '<div class="modal-dialog modal-lg">';
-			modalhtml += '<div class="modal-content">';
-			modalhtml += '<button data-dismiss="modal">';
-			modalhtml += '<img class="modal_img" src="/images/mainprojects/109_dhob/otherimages/dh_' + i + '.png">';
-			modalhtml += '</button></div></div></div>'
-			
-			$("#modal_wapper").append(modalhtml);
-		}
 	</script>
 	{{> include/footer}}
 </body>
