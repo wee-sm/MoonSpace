@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 
@@ -19,7 +20,7 @@ public class MoonProject extends MoonAbstractEntity {
 	@Column(nullable = false, unique = true)
 	private String projectName;
 
-	@OneToMany(mappedBy = "moonProjects", cascade = CascadeType.ALL)
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "moonProjects", cascade = CascadeType.ALL)
 	@OrderBy("imageName ASC")
 	private List<MoonImage> moonImages;
 
