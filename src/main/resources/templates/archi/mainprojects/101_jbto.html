@@ -4,6 +4,80 @@
 {{> include/header}}
 
 <style type="text/css">
+
+/* slide 1 */
+.slide1_wapper {
+	position: relative;
+	height: 100vh;
+	text-align: center;
+	padding-top: 50px;
+}
+
+.slide1_wapper>.textbox {
+	width: 700px;
+	text-align: left;
+	margin: 0 auto;
+}
+
+.slide1_wapper>.imgbox {
+	text-align: center;
+}
+
+.slide1_wapper>.imgbox>img {
+	width: 700px;
+	filter: grayscale(75%);
+	margin: 20px auto;
+}
+
+/* slide 2 */
+.slide2_wapper {
+	position: relative;
+	height: 100vh;
+	padding-top: 200px;
+}
+
+.slide2_wapper>.textbox {
+	width: 700px;
+	text-align: left;
+	margin: 0 auto;
+}
+
+.slide2_wapper>.imgbox {
+	text-align: center;
+}
+
+.slide2_wapper>.imgbox>img {
+	width: 700px;
+	margin: 20px auto;
+}
+
+/* slide 3 */
+.slide3_wapper {
+	position: relative;
+	height: 100vh;
+	text-align: center;
+	padding-top: 100px;
+}
+
+.slide3_wapper>.textbox {
+	width: 450px;
+	text-align: left;
+	margin: 0px auto;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.slide3_wapper>.imgbox {
+	width: 700px;
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.slide3_wapper>.imgbox>img {
+	width: 100%;
+	margin: 20px auto;
+}
 /* swiper-button */
 .nav_arrow {
 	position: absolute;
@@ -29,79 +103,102 @@
 		
     	<!-- Additional required wrapper -->
     	<div class="swiper-wrapper">
-    		
     		<!-- Slides1 -->
 			<div class="swiper-slide">
-				hello1
+				<div class="slide1_wapper">
+					<div class="textbox">
+						<div style="padding: 0 0 5px 0;">
+							<span class="text_numbering">No.101<br></span>
+							<div class="text_title">
+								Narakium Jungbu Tax Office new construction project<br>
+							</div>
+						</div>
+						<div style="padding: 5px 0 0 0; border-top: solid 1px">
+							<span> This project was my first design development and
+								construction project. I performed 3D modeling, intersection
+								checking, drawing, documents preparing, etc as assistant
+								architecture.</span>
+						</div>
+					</div>
+					<div class="imgbox">
+						<img src="{{moonimages.jbto_01-jpg}}">
+					</div>
+					<div class="textbox">
+						<span> As an architect assistant, I participated in 160K
+							GSF new construction project. This project was following the
+							strict standards related to structure and environment because
+							it is a government tax office. Through the finishing of this
+							project, I could understand the meaning of various documents for
+							construction. </span>
+					</div>
+				</div>
 			</div>
 			
     		<!-- Slides2 -->
 			<div class="swiper-slide">
-				hello1
-			</div>
-						
-			<!-- otherimage section -->
-			<div class="swiper-slide">
-				<div class="content_wapper">
-					<div class="content centerVH">
-						<div class="content_text4">
-							<div class="otherimage_container centerVH">
-								<section class="otherimage_contents">
-									<div class="otherimage_wrap" id="otherimage_wrap">
-									<!-- JS -->
-									</div>
-								</section>
-							</div>
-						</div>
+				<div class="slide2_wapper">
+					<div class="textbox">
+						<span>The site is located on the border between the nature
+							of mountain Namsan and the flow from Seoul city center and is
+							placed in the junction where various road axes passed. Analyzing
+							the population flow on the axes moving from Chungmuro to
+							Myeongdong had to be considered prior to the design. </span>
+					</div>
+					<div class="imgbox">
+						<img src="{{moonimages.jbto_02-png}}">
+					</div>
+					<div class="textbox">
+						<span>As the Jungbu tax office is in charge of Myeongdong
+							and Dongdaemun markets, it should embrace the representativeness
+							of the region and the publicness for the citizens. As a means to
+							generate the symbolic feature, the tax office was designed using
+							'varied facets' which not only represent the various axes but
+							also reflect the dynamic characteristics of the surrounding area,
+							Myeongdong and Dongdaemun. Also, in order to provide publicness
+							to the majority, a spacious open space was designed in front of
+							the office to provide a resting place to the pedestrians.</span>
 					</div>
 				</div>
 			</div>
 			
-    		<!-- Last Slide -->
+    		<!-- Slides3 -->
 			<div class="swiper-slide">
-				<div class="slide_last_wapper">
-					<div class="textbox">
-						<div class="project_summary">
-							<table>
-								<tr>
-									<td>Urban Regeneration - Cheongju Old Cigarette Factory</td>
-									<th>Project</th>
-								</tr>
-								<tr>
-									<td>Cheongju Urban Design Office</td>
-									<th>Client</th>
-								</tr>
-								<tr>
-									<td>2017 - 2019</td>
-									<th>Year</th>
-								</tr>
-								<tr>
-									<td>Cheongwon-gu, Cheongju-si, Chungcheongbuk-do, Republic of Korea</td>
-									<th>Location</th>
-								</tr>
-								<tr>
-									<td>51,515.41sm / 35m (5F)</td>
-									<th>Size</th>
-								</tr>
-								<tr>
-									<td>Commercial, Culture, Gallery, Office</td>
-									<th>Program</th>
-								</tr>
-								<tr>
-									<td>RC, Structure Reinforcement</td>
-									<th>Structure</th>
-								</tr>
-							</table>
-						</div>
+				<div class="slide3_wapper">
+					<div class="imgbox">
+						<img src="{{moonimages.jbto_03_01-png}}">
+						<img src="{{moonimages.jbto_03_02-png}}">
 					</div>
-					<div class="background" style="background-image: url('/images/mainprojects/111_cjcf/otherimages/cj_92.png')"></div>
+					<div class="textbox">
+						<p>Our team consisted of 5 manpower Including myself,
+							and I was an assistant designer from the Design Development to
+							the Construction Administration. Followings are the main duties I
+							carried out:</p>
+
+						<ul>
+							<li>Designed plans and estimated the cost of the temporary
+								tax office building which will substitute the original Jungbu
+								tax office during the construction.</li>
+
+							<li>Checked the interference between the structure and the
+								facilities.</li>
+							<li>Created working drawings used in the construction, such
+								as location drawings, assemblydrawings and component drawings.</li>
+							<li>Produces final construction documentation.</li>
+							<li>Revised documents for permission, accreditation and
+								value engineering(following intensified architectural standards
+								for a public institution)</li>
+						</ul>
+						<p>During this public office project, we performed
+							designs based on higher architectural standard and produced
+							well-made full packaged output. As a result, this project is
+							acknowledged as one of the finest projects in the company.</p>
+						<p class="text_numbering">The next page will be made after the
+							construction is finished.</p>
+					</div>
 				</div>
 			</div>
+			
 		</div>
-	</div>
-	<!-- Modal -->
-	<div id="modal_wapper">
-		<!-- JS -->
 	</div>
 	
 	<script type="text/javascript">
@@ -131,26 +228,6 @@
 				enabled: true,
 			},
 		})
-		
-		// other image and modal html
-		for (i = 71; i < 91; i++) {
-			imagehtml = ''; 
-			imagehtml += '<div class="otherimage">';
-			imagehtml += '<button data-toggle="modal" data-target="#img_' + i + '_Modal">';
-			imagehtml += '<img id="otherimage_' + i + '" src="/images/mainprojects/111_cjcf/otherimages/cj_' + i + '.png">';
-			imagehtml += '</button></div>';
-			$("#otherimage_wrap").append(imagehtml);
-			
-			modalhtml = '';
-			modalhtml += '<div class="modal fade" id="img_' + i + '_Modal">';
-			modalhtml += '<div class="modal-dialog modal-lg">';
-			modalhtml += '<div class="modal-content">';
-			modalhtml += '<button data-dismiss="modal">';
-			modalhtml += '<img class="modal_img" src="/images/mainprojects/111_cjcf/otherimages/cj_' + i + '.png">';
-			modalhtml += '</button></div></div></div>'
-			
-			$("#modal_wapper").append(modalhtml);
-		}
 	</script>
 	{{> include/footer}}
 </body>
