@@ -26,8 +26,8 @@
 	padding: 10px 0;
 	text-align: left;
 	
-	border-top: #5ea3db solid 3px;
-	border-bottom: #ffae3d solid 3px;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
 }
 .otherwork_contents {
 	position: relative;
@@ -58,24 +58,27 @@
 	align-content: center;
 	cursor: pointer;
 }
-
-.otherwork>div>img {
- 	width: 85%;
-	height: 85%;
-	overflow:hidden;
+.otherwork_imgwapper{
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	transition: all 0.5s ease;
 	z-index: 2;
+	width: 85%;
+	height: 85%;
+	overflow: hidden;
+}
+
+.otherwork_imgwapper>img {
+ 	width: 100%;
+	height: 100%;
+	overflow:hidden;
+	transition: all 0.5s ease;
 	object-fit: cover;
 }
-
-.otherwork>div {
-	z-index:100;
+.otherwork_imgwapper:hover>img {
+	transform: scale(1.2);
 }
-
 
 .otherwork:hover {
 	z-index: 1;
@@ -121,61 +124,92 @@
 	<!-- info section -->
 	<section class="otherwork_info">
 		<div class="info">
-			<span class="text_numbering">Other Works</span><br>
+			<span class="text_numbering">Other Projects</span><br>
 			<span class="text_title" style="font-size: 24px;">
-				Other Works
-			</span><br>
+				Rendering<br>
+				Illustrating<br>
+				Diagramming<br>
+				Model Making<br>
+				Drawing
+			</span>
 			<!-- TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT -->
 		</div>
 	</section><!--
 	works section
 	--><section class="otherwork_contents">
 		<div class="swiper-container swiper-container-v">
-			<!-- Add Pagination -->
-			<div class="swiper-pagination swiper-pagination-v"></div>
+			<div class="swiper-pagination swiper-pagination-d"></div>
 			<div class="swiper-wrapper">
-			
 				<div class="swiper-slide">
-					<!-- work 01 -->
-					<div class="otherwork">
-						<div data-toggle="modal" data-target="#work1_Modal">
+					<div class="otherwork" data-toggle="modal" data-target="#work1_Modal">
+						<div class="otherwork_imgwapper">
 							<img src="/images/otherprojects/501_bawi/bw_01.jpg">
 						</div>
 					</div>
-					<!-- work 02 -->
-					<div class="otherwork">
-						<div data-toggle="modal" data-target="#work2_Modal">
+					<div class="otherwork" data-toggle="modal" data-target="#work2_Modal">
+						<div class="otherwork_imgwapper">
 							<img src="/images/otherprojects/502_phc/phc_02.png">
 						</div>
 					</div>
-					<div class="otherwork">
-						<div data-toggle="modal" data-target="#work3_Modal">
+					<div class="otherwork" data-toggle="modal" data-target="#work3_Modal">
+						<div class="otherwork_imgwapper">
 							<img src="/images/otherprojects/503_dc/dc_01.png">
 						</div>
 					</div>
-					<div class="otherwork">
-						<div data-toggle="modal" data-target="#work4_Modal">
+					<div class="otherwork" data-toggle="modal" data-target="#work4_Modal">
+						<div class="otherwork_imgwapper">
 							<img src="/images/otherprojects/504_gm/gm_02.png">
 						</div>
 					</div>
-					<div class="otherwork">
-						<div data-toggle="modal" data-target="#work5_Modal">
+				</div>
+				<div class="swiper-slide">
+					<div class="otherwork" data-toggle="modal" data-target="#work5_Modal">
+						<div class="otherwork_imgwapper">
 							<img src="/images/otherprojects/505_sac/sac_00.png">
 						</div>
 					</div>
-					<div class="otherwork">
-						<div data-toggle="modal" data-target="#work6_Modal">
+					<div class="otherwork" data-toggle="modal" data-target="#work6_Modal">
+						<div class="otherwork_imgwapper">
 							<img src="/images/otherprojects/506_wwc/wwc_01.png">
 						</div>
 					</div>
-					<div class="otherwork">
-						<div data-toggle="modal" data-target="#work7_Modal">
+					<div class="otherwork" data-toggle="modal" data-target="#work7_Modal">
+						<div class="otherwork_imgwapper">
 							<img src="/images/otherprojects/507_nam/nam_01.png">
 						</div>
 					</div>
-					<div class="otherwork">
-						<div data-toggle="modal" data-target="#work8_Modal">
+					<div class="otherwork" data-toggle="modal" data-target="#work8_Modal">
+						<div class="otherwork_imgwapper">
 							<img src="/images/otherprojects/508_rh/rh_01.png">
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="otherwork" data-toggle="modal" data-target="#work9_Modal">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/509_hdb/hdb_00.png">
+						</div>
+					</div>
+					<div class="otherwork" data-toggle="modal" data-target="#work10_Modal">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/510_yyo/yyo_01.png">
+						</div>
+					</div>
+					<div class="otherwork" data-toggle="modal" data-target="#work11_Modal">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/601_ren/ren_01.jpg">
+						</div>
+					</div>
+					<div class="otherwork" data-toggle="modal" data-target="#work12_Modal">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/602_ren/ren_01.png">
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="otherwork" data-toggle="modal" data-target="#work13_Modal">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/603_ren/ren_01.png">
 						</div>
 					</div>
 				</div>
@@ -189,10 +223,9 @@ var swiperV = new Swiper('.swiper-container-v', {
     direction: 'vertical',
     freeMode: true,
     slidesPerView: 'auto',
-    pagination: {
-        el: '.swiper-pagination-v',
-        dynamicBullets: true,
-        clickable: true,
-      },
+	pagination: {
+		el: '.swiper-pagination-d',
+		dynamicBullets: true,
+	},
   });
 </script>

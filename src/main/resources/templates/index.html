@@ -17,6 +17,7 @@ body, html, .swiper-container {
 	
 	<!-- Slider main container -->
 	<div class="swiper-container swiper-container-h">
+   		<div class="swiper-scrollbar"></div>
     	<!-- Additional required wrapper -->
     	<div class="swiper-wrapper">
     		<!-- Slides -->
@@ -41,7 +42,7 @@ body, html, .swiper-container {
 		var swiperH = new Swiper('.swiper-container-h', {
 			lazy: true,
 			speed : 1500,
-			spaceBetween : 100,
+			spaceBetween : 0,
 			grabCursor : true,
 			// Optional parameters
 			direction : 'horizontal',
@@ -53,6 +54,10 @@ body, html, .swiper-container {
 			keyboard : {
 				enabled : true,
 				onlyInViewport : false,
+			},
+			scrollbar: {
+			    el: '.swiper-scrollbar',
+			    hide: true,
 			},
 		})
 	</script>
