@@ -1,0 +1,208 @@
+<style type="text/css">
+figure.effect-marley {
+	position: relative;
+	height: 300px;
+	width: 300px;
+	transition: height 0.35s ease-in-out;
+}
+
+figure.effect-marley figcaption {
+	height: 100%;
+	width: 100%;
+	text-align: right;
+}
+figure.effect-marley img {
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+	transition: brightness 0.2s;
+}
+figure.effect-marley:hover img {
+	filter: brightness(0.5);
+}
+
+figure.effect-marley figcaption .fig_title .text_title {
+	transition: color 0.35s;
+	text-shadow: 2px 2px #ffffff;
+	transition: text-shadow 0.2s;
+}
+
+figure.effect-marley:hover figcaption .fig_title .text_title {
+	color:white;
+	text-shadow: 2px 2px #000000;
+}
+
+figure.effect-marley .fig_title,
+figure.effect-marley .fig_tag {
+	position: absolute;
+	right: 30px;
+	left: 30px;
+	padding: 10px 0;
+}
+
+figure.effect-marley .fig_tag {
+	bottom: 30px;
+	line-height: 1.5;
+	transform: translate3d(0, 100%, 0);
+}
+
+figure.effect-marley .fig_title {
+	top: 30px;
+	transition: transform 0.35s;
+	transform: translate3d(0, 20px, 0);
+}
+
+figure.effect-marley:hover .fig_title {
+	transform: translate3d(0, 0, 0);
+}
+
+figure.effect-marley .fig_title::after {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: #fff;
+	content: '';
+	transform: translate3d(0, 40px, 0);
+}
+
+figure.effect-marley .fig_title::after,
+figure.effect-marley .fig_tag {
+	opacity: 0;
+	transition: opacity 0.35s, transform 0.35s;
+}
+
+figure.effect-marley:hover .fig_title::after,
+figure.effect-marley:hover .fig_tag {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+.workingsample_2_container {
+	text-align: center;
+	margin-top: 10%;
+}
+
+.workingsample_2_info {
+	position:relative;
+ 	display: inline-block;
+	height: 300px;
+	width: 300px;
+	
+	margin: 25px;
+	padding: 10px 0;
+	text-align: left;
+	
+	border-top: rgb(128, 128, 128) solid 3px;
+	border-bottom: rgb(210, 210, 210) solid 3px;
+	
+	vertical-align: top;
+}
+
+.workingsample_2 {
+	position:relative;
+ 	display: inline-block;
+	width: 300px;
+	height: 300px;
+ 	
+	margin: 25px;
+	text-align: center;
+	cursor: pointer;
+	
+	vertical-align: top;
+}
+
+.workingsample_2 > .sample_image {
+	width: 300px;
+	height: 300px;
+}
+.workingsample_2 > .sample_title {
+	text-align: left;
+	width: 300px;
+	height: 300px;
+	padding: 10px 0;
+	
+	opacity: 0;
+	transition: opacity 1s;
+}
+.workingsample_2:hover > .sample_title {
+	opacity: 1;
+}
+</style>
+
+<div class="workingsample_2_container ">
+	<div class="workingsample_2_info">
+		<span class="text_numbering">School Projects</span><br>
+		<span class="text_title" style="font-size: 24px;">
+			Hongik University
+		</span><br>
+		Architectural Design Projects
+	</div>
+	
+	<!-- 1. -->
+	<div class="workingsample_2" onclick="window.location='archi/schoolprojects/051_htuhr/201';">
+		<div class="sample_image">
+			<figure class="effect-marley">
+				<img src="/images/schoolprojects/051_htuhr_thumbnail.png">
+				<figcaption>
+					<div class="fig_title">
+						<span class="text_numbering">No.051</span><br>
+						<span class="text_title">How to use<br>Han-River</span>
+					</div>
+					<div class="fig_tag">
+						<span class="hashtag" style="color:white;">
+							#Graduate Project<br>
+							#Waterfront Development<br>
+							#Urban Transportation
+						</span>
+					</div>
+				</figcaption>
+			</figure>
+		</div>
+	</div>
+	
+	<!-- 2. -->
+	<div class="workingsample_2" onclick="window.location='archi/schoolprojects/042_eddy/227';">
+		<div class="sample_image">
+			<figure class="effect-marley">
+				<img src="/images/schoolprojects/042_eddy_thumbnail.png">
+				<figcaption>
+					<div class="fig_title">
+						<span class="text_numbering">No.042</span><br>
+						<span class="text_title">EDDY<br> </span>
+					</div>
+					<div class="fig_tag">
+						<span class="hashtag" style="color:white;">
+							#4th Grade Project<br>
+							#Parametric Design by grasshopper<br>
+							#3D Print Modeling
+						</span>
+					</div>
+				</figcaption>
+			</figure>
+		</div>
+	</div>
+	
+	<!-- 3. -->
+	<div class="workingsample_2" onclick="window.location='archi/schoolprojects/032_hhd/228';">
+		<div class="sample_image">
+			<figure class="effect-marley">
+				<img src="/images/schoolprojects/032_hhd_thumbnail.png">
+				<figcaption>
+					<div class="fig_title">
+						<span class="text_numbering">No.032</span><br>
+						<span class="text_title">Hotel<br>Hong-dae</span>
+					</div>
+					<div class="fig_tag">
+						<span class="hashtag" style="color:white;">
+							#3th Grade Project<br>
+							#Boutique Hotel in HongDae<br>
+							#Research Book Making 
+						</span>
+					</div>
+				</figcaption>
+			</figure>
+		</div>
+	</div>
+</div>

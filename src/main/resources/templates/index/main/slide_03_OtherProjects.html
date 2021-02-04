@@ -32,22 +32,23 @@
 .otherwork_contents {
 	position: relative;
  	width: 1060px;
-  	height: 100vh;
+  	height: 90vh;
  	display: inline-block;
 	text-align: left;
 }
 
-.otherwork_contents > .swiper-container-v {
+.otherwork_contents > .swiper-container-s-h {
   	height: 80%;
   	top:10%;
 	position: absolute;
 }
-.otherwork_contents > .swiper-container-v > .swiper-wrapper > .swiper-slide {
+.otherwork_contents .swiper-slide {
 	height: 250px;
 }
 
 .otherwork {
 	position: relative;
+/* 	width: 240px; */
 	width: 240px;
 	height: 240px;
  	border: 1px solid #000;
@@ -137,7 +138,7 @@
 	</section><!--
 	works section
 	--><section class="otherwork_contents">
-		<div class="swiper-container swiper-container-v">
+		<div class="swiper-container swiper-container-s-v">
 			<div class="swiper-pagination swiper-pagination-d"></div>
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
@@ -219,7 +220,7 @@
 </div>
 
 <script>
-var swiperV = new Swiper('.swiper-container-v', {
+var swiperV = new Swiper('.swiper-container-s-v', {
     direction: 'vertical',
     freeMode: true,
     slidesPerView: 'auto',

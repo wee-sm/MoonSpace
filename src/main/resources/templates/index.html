@@ -9,37 +9,49 @@ body, html, .swiper-container {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	position:relative;
+	overflow: hidden;
+}
+
+.swiper-slide{
+	background-color: white;
+}
+.mainslide{
+	background-color: rgba(255, 0, 0, 0);
 }
 </style>
 </head>
 <body>
-	{{> index/loading/base}}
-	
-	<!-- Slider main container -->
-	<div class="swiper-container swiper-container-h">
+<!-- 	{{> index/loading/base}} -->
+	<div class="swiper-container swiper-container-indexpage">
    		<div class="swiper-scrollbar"></div>
-    	<!-- Additional required wrapper -->
     	<div class="swiper-wrapper">
     		<!-- Slides -->
-			<div class="swiper-slide">
-				{{>index/main/main_01}}
+    		<div class="swiper-slide">
+				{{>index/main/slide_11_about}}
+			</div>
+    		<div class="swiper-slide mainslide">
+				{{>index/main/slide_00_mainpage}}
 			</div>
 			<div class="swiper-slide">
-				{{>index/main/main_02}}
+				{{>index/main/slide_01_CompanyProjects}}
 			</div>
 			<div class="swiper-slide">
-				{{>index/main/main_03}}
+				{{>index/main/slide_02_SchoolProjects}}
 			</div>
 			<div class="swiper-slide">
-				{{>index/main/main_04}}
+				{{>index/main/slide_03_OtherProjects}}
 			</div>
 		</div>
 	</div>
-	{{>index/main/main_04_modal}}
+	{{>index/main/slide_03_OtherProjects_modal}}
+	{{>index/main/slide_00_mainpage_videobackground}}
 	
 	<script type="text/javascript">
 		// swiper
-		var swiperH = new Swiper('.swiper-container-h', {
+		var swiperH = new Swiper('.swiper-container-indexpage', {
+			initialSlide: 1,
+			slidesPerView: 1,
 			lazy: true,
 			speed : 1500,
 			spaceBetween : 0,

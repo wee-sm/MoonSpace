@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400&display=swap');
 
 :root {
 	--Color001: #FFFFFF; /* white */
@@ -14,14 +15,14 @@ body {
 	position: relative;
     font-family: 'Castoro', serif;
 }
+
 input, button, submit {
 	background: none;
-	border: 1px blod black;
 	padding: 0;
 	cursor: pointer;
 	color: inherit;
 	font: inherit;
-	outline: inherit;
+    outline: inherit;
 }
 
 a, a:link, a:visited, a:active {
@@ -56,7 +57,6 @@ a:hover {
  	left: 50%;
 	transform: translate(-50%, -50%);
 }
-
 
 .text_mainline {
 /* 	index(home) page */

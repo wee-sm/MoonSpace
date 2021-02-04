@@ -1,14 +1,15 @@
 <style>
-#loader, #sky {
-	height: 100%;
-	width: 100%;
-	margin: 0px;
-	padding: 0px;
-}
 
 body {
 	background: linear-gradient(to right, #ff47a1 0%, #ff9f4d 100%);
 	overflow: hidden;
+}
+
+#loader {
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
 }
 
 #loadingImage, #loadingBar {
@@ -28,12 +29,11 @@ body {
 	<img id="loadingImage" style="z-index: 1000;" src="/images/loadingpage/loading.png">
 	<div id="loadingBar" style="z-index: 999;"></div>
 </div>
-<!-- {{> index/loading/background}} -->
 
 <script type="text/javascript">
 	//Loading Set
 	var canvasSize = 150; // px
-	var loadingTime = 1000; // ms (1/1000s)
+	var loadingTime = 1500; // ms (1/1000s)
 	
 	$( window ).on( "load", function() {
 		setLoadingImageSize(canvasSize)
@@ -51,7 +51,6 @@ body {
 		$( "#loader" ).hide();
 		$("body").css({"background": "none"}); // reset body margin
 		$( "#mainDiv" ).show( "slow" );
-// 		$( "#mainDiv" ).slideDown( "slow" );
 	}
 	
 	// Create fill
