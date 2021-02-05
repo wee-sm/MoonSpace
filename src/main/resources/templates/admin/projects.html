@@ -2,23 +2,37 @@
 <html>
 <head>
 	{{> include/header}}
+	<style type="text/css">
+	* {
+		overflow: auto;
+	}
+	.eachproject{
+		display: inline-block;
+		width: 250px;
+		border: 1px solid black;
+		text-align: center;
+	}
+	</style>
 </head>
 <body>
 	<div><h2>admin main</h2></div>
 	<div>
-		<h4>moonproject list</h4>
-		<ul>
-			{{#moonprojects}}
-			<li><a href="/admin/{{id}}">{{pno}}_{{projectName}}({{id}})</a>
-			
-			<form method="POST" action="/moonproject/{{id}}">
-				<input type="hidden" name="_method" value="DELETE">
-				<button type="submit">DELETE</button>
+		<div>
+			<h4>add moonproject</h4>
+			<form method="POST" action="/moonproject">
+				<input type="text" name="pno" placeholder="Project No." required>
+				<input type="text" name="projectName" placeholder="Project Name" required>
+			    <button type="submit">ADD</button>
 			</form>
+		</div>
+		
+		<h4>moonproject list</h4>
+			{{#moonprojects}}
+			<div class="eachproject">
+			<a href="/admin/{{id}}">{{pno}}_{{projectName}}({{id}})</a>
 			
-			<div data-toggle="modal" data-target="#Modal_{{id}}">
-				<button>UPDATE</button>
-			</div>
+			<button data-toggle="modal" data-target="#Modal_{{id}}">UPDATE</button>
+			
 			<!-- Modal -->
 			<div class="modal fade" id="Modal_{{id}}" tabindex="-1" role="dialog">
 				<div class="modal-dialog modal-lg" role="document">
@@ -37,21 +51,18 @@
 								<button type="submit">UPDATE</button>
 							</form>
 						</div>
+						<div class="modal-delete">
+							<form method="POST" action="/moonproject/{{id}}">
+								<input type="hidden" name="_method" value="DELETE">
+								<button type="submit">DELETE</button>
+							</form>
+						</div>
 						<div class="modal-footer">Project Update</div>
 					</div>
 				</div>
 			</div>
-			</li>
+			</div>
 			{{/moonprojects}}
-		</ul>
-	</div>
-	<div>
-	<h4>add moonproject</h4>
-		<form method="POST" action="/moonproject">
-			<input type="text" name="pno" placeholder="Project No." required>
-			<input type="text" name="projectName" placeholder="Project Name" required>
-		    <button type="submit">ADD</button>
-		</form>
 	</div>
 </body>
 </html>

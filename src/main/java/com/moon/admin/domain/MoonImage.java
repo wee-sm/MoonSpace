@@ -2,6 +2,7 @@ package com.moon.admin.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
@@ -12,7 +13,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @Entity
 @DynamicUpdate
 public class MoonImage extends MoonAbstractEntity {
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_project_for_image"))
 	private MoonProject moonProjects;
 
