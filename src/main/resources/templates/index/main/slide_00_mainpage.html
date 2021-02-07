@@ -1,31 +1,142 @@
 <style>
-.videotext {
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+.maintext {
+	font-size: 24px;
+	font-family: 'Architects Daughter', cursive;
+}
+.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
+	margin: 0;
+	z-index:9999;
+}
+.swiper-container-mainpage>.swiper-pagination {
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	
-	font-size: 32px;
-	font-family: 'Big Shoulders Display', serif;
-	font-weight: 400;
+	top: calc(60px + 12px * 1);
+	right: calc(60px + 24px * 3);
+	width: auto !important;
+	left: auto !important;
+	margin: 0;
+}
+.swiper-container-mainpage>.swiper-pagination .swiper-pagination-bullet {
+	border-radius: 0;
+	width: 24px;
+	height: 24px;
 	text-align: center;
-	color: white;
-	background-color: black;
-	padding: 0px 8px;
+	line-height: 24px;
+	font-size: 16px;
+	font-family: 'Russo One', sans-serif;
+	color:#FFF;
+	opacity: 1;
+	background: rgba(0,0,0,0.1);
+}
+.swiper-container-mainpage>.swiper-pagination .swiper-pagination-bullet-active {
+	background: rgba(0,0,0,0.5);
 }
 </style>
 
-<!-- <div class="videotext"> -->
-<!-- 	SUNGMOON WEA -->
-<!-- </div> -->
 
-
-<div class="centerVH">
-	SUNGMOON WEA
+<div class="swiper-container swiper-container-mainpage">
+	<div class="swiper-pagination swiper-pagination-mainpage"></div>
+   	<div class="swiper-wrapper">
+   		<!-- Slides -->
+		<div class="swiper-slide">
+			<iframe src="https://wee-sm.github.io/about/" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:99;">
+			    Your browser doesn't support iframes
+			</iframe>
+		</div>
+   		<div class="swiper-slide">
+			<div class="maintext centerVH">
+			  <div class="typewrite" data-period="2000" data-type='["Design For Good."]'>
+			    <span class="wrap"></span>
+			  </div>
+			</div>
+		</div>
+		<div class="swiper-slide">
+			B
+		</div>
+	</div>
 </div>
-
+		
+		
 <script>
-var swiperV = new Swiper('.swiper-container-main-v', {
+var menu2 = ['C', 'H', 'X']
+var swiperMp = new Swiper('.swiper-container-mainpage', {
+	initialSlide: 1,
+	slidesPerView: 1,
+	lazy: true,
+	speed : 1500,
+	spaceBetween : 0,
+	grabCursor : true,
     direction: 'vertical',
-  });
+	loop : false,
+	keyboard : {
+		enabled : true,
+		onlyInViewport : false,
+	},
+	pagination: {
+		el: '.swiper-pagination-mainpage',
+		clickable: true,
+		renderBullet: function (index2, className2) {
+            return '<span class="' + className2 + '">' + (menu2[index2]) + '</span>';
+		},
+	},
+});
+  
+var TxtType = function(el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = false;
+};
+
+TxtType.prototype.tick = function() {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
+
+    if (this.isDeleting) {
+   		this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+   	    this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+    var that = this;
+    var delta = 200 - Math.random() * 100;
+
+    if (this.isDeleting) { delta /= 2; }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+// 	    delta = this.period;
+// 	    this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+	    this.isDeleting = false;
+	    this.loopNum++;
+	    delta = 500;
+    }
+    
+    setTimeout(function() {
+    that.tick();
+    }, delta);
+};
+
+window.onload = function() {
+    var elements = document.getElementsByClassName('typewrite');
+    for (var i = 0; i<elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-type');
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+          new TxtType(elements[i], JSON.parse(toRotate), period, (i == elements.length - 1));
+        }
+    }
+    // INJECT CSS
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+    document.body.appendChild(css);
+};
 </script>

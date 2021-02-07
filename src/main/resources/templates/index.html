@@ -12,62 +12,92 @@ body, html, .swiper-container {
 	position:relative;
 	overflow: hidden;
 }
-.mainslide{
-	background-color: rgba(255, 0, 0, 0);
+
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+	margin: 0;
+	z-index:9999;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+.swiper-container-indexpage>.swiper-pagination {
+	position: absolute;
+	top: 60px;
+	right: 60px;
+	width: auto !important;
+	left: auto !important;
+}
+.swiper-container-indexpage>.swiper-pagination .swiper-pagination-bullet {
+	border-radius: 0;
+	width: 24px;
+	height: 24px;
+	text-align: center;
+	line-height: 24px;
+	font-size: 16px;
+	font-family: 'Russo One', sans-serif;
+	color:#FFF;
+	opacity: 1;
+	background: rgba(0,0,0,0.1);
+}
+.swiper-container-indexpage>.swiper-pagination .swiper-pagination-bullet-active {
+	background: rgba(0,0,0,1);
 }
 </style>
 </head>
 <body>
-	{{> index/loading/base}}
-	<div class="swiper-container swiper-container-indexpage">
-   		<div class="swiper-scrollbar-indexpage"></div>
-    	<div class="swiper-wrapper">
-    		<!-- Slides -->
-    		<div class="swiper-slide">
-				{{>index/main/slide_11_about}}
-			</div>
-    		<div class="swiper-slide mainslide">
-				{{>index/main/slide_00_mainpage}}
-			</div>
-			<div class="swiper-slide">
-				{{>index/main/slide_01_CompanyProjects}}
-			</div>
-			<div class="swiper-slide">
-				{{>index/main/slide_02_SchoolProjects}}
-			</div>
-			<div class="swiper-slide">
-				{{>index/main/slide_03_OtherProjects}}
+<!-- 	{{> include/navigation}} -->
+<!-- 	{{> index/loading/base_01}} -->
+		<div class="swiper-container swiper-container-indexpage">
+	   		<div class="swiper-pagination swiper-pagination-indexpage"></div>
+	    	<div class="swiper-wrapper">
+	    		<!-- Slides -->
+	    		<div class="swiper-slide">
+					{{>index/main/slide_11_about}}
+				</div>
+	    		<div class="swiper-slide mainslide">
+					{{>index/main/slide_00_mainpage}}
+				</div>
+				<div class="swiper-slide">
+					{{>index/main/slide_01_CompanyProjects}}
+				</div>
+				<div class="swiper-slide">
+					{{>index/main/slide_02_SchoolProjects}}
+				</div>
+				<div class="swiper-slide">
+					{{>index/main/slide_03_OtherProjects}}
+				</div>
 			</div>
 		</div>
-	</div>
-	
-	<script type="text/javascript">
-		// swiper
-		var swiperH = new Swiper('.swiper-container-indexpage', {
-			initialSlide: 1,
-			slidesPerView: 1,
-			lazy: true,
-			speed : 1500,
-			spaceBetween : 0,
-			grabCursor : true,
-			// Optional parameters
-			direction : 'horizontal',
-			loop : false,
-			mousewheel : {
-				invert : false,
-			},
-			effect : 'slide',
-			keyboard : {
-				enabled : true,
-				onlyInViewport : false,
-			},
-			scrollbar: {
-			    el: '.swiper-scrollbar-indexpage',
-			    hide: true,
-			},
-		})
-	</script>
-	{{>index/main/slide_03_OtherProjects_modal}}
-	{{> include/footer}}
+		{{>index/main/slide_03_OtherProjects_modal}}
+		{{> include/footer}}
+		<script type="text/javascript">
+			var menu1 = ['A', 'H', 'P', 'S', 'O']
+			// swiper
+			var swiperIp = new Swiper('.swiper-container-indexpage', {
+				initialSlide: 1,
+				slidesPerView: 1,
+				lazy: true,
+				speed : 1500,
+				spaceBetween : 0,
+				grabCursor : true,
+				// Optional parameters
+				direction : 'horizontal',
+				loop : false,
+				mousewheel : {
+					invert : false,
+				},
+				effect : 'slide',
+				keyboard : {
+					enabled : true,
+					onlyInViewport : false,
+				},
+				pagination: {
+					el: '.swiper-pagination-indexpage',
+					clickable: true,
+			        renderBullet: function (index1, className1) {
+			            return '<span class="' + className1 + '">' + (menu1[index1]) + '</span>';
+			        },
+				},
+			})
+		</script>
 </body>
 </html>

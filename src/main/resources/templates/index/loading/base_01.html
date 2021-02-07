@@ -1,0 +1,23 @@
+<style>
+#mainDiv {
+	display: none;
+}
+</style>
+
+<div id="loaderDiv">
+	Sungmoon Wea
+</div>
+
+<script type="text/javascript">
+//Loading Set
+var loadingTime = 1500; // ms (1/1000s)
+
+$( window ).on( "load", function() {
+	setTimeout(showPage, loadingTime);
+});
+
+function showPage() {
+	$( "#loaderDiv" ).hide();
+	$( "#mainDiv" ).show();
+}
+</script>
