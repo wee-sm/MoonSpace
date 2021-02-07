@@ -12,19 +12,15 @@ body, html, .swiper-container {
 	position:relative;
 	overflow: hidden;
 }
-
-.swiper-slide{
-	background-color: white;
-}
 .mainslide{
 	background-color: rgba(255, 0, 0, 0);
 }
 </style>
 </head>
 <body>
-<!-- 	{{> index/loading/base}} -->
+	{{> index/loading/base}}
 	<div class="swiper-container swiper-container-indexpage">
-   		<div class="swiper-scrollbar"></div>
+   		<div class="swiper-scrollbar-indexpage"></div>
     	<div class="swiper-wrapper">
     		<!-- Slides -->
     		<div class="swiper-slide">
@@ -44,7 +40,6 @@ body, html, .swiper-container {
 			</div>
 		</div>
 	</div>
-	{{>index/main/slide_00_mainpage_videobackground}}
 	
 	<script type="text/javascript">
 		// swiper
@@ -67,11 +62,12 @@ body, html, .swiper-container {
 				onlyInViewport : false,
 			},
 			scrollbar: {
-			    el: '.swiper-scrollbar',
+			    el: '.swiper-scrollbar-indexpage',
 			    hide: true,
 			},
 		})
 	</script>
+	{{>index/main/slide_03_OtherProjects_modal}}
 	{{> include/footer}}
 </body>
 </html>

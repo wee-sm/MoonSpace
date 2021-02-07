@@ -1,4 +1,252 @@
-<div class="">
-	SUNGMOON WEA<br>
+<style>
+/* Layout */
+* {
+	box-sizing: border-box;
+}
+.about-wapper{
+	position: relative;
+	width: 80%;
+	height: 100vh;
+	margin: 0 10%;
+}
+
+.about {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translate(0, -50%);
 	
+	width: 60%;
+	padding: 50px;
+	margin: auto;
+}
+
+.timeline {
+	position: absolute;
+	left: 60%;
+	top: 50%;
+	transform: translate(0, -50%);
+	
+	width:40%;
+	height: 100vh;
+	padding: 50px;
+	margin: auto;
+	background: #ecf0f1;
+	box-shadow: 0 2px 6px 0 rgba(0,0,0, .3);
+}
+
+/* Styling */
+
+.timeline-event{
+	height: auto;
+}
+
+.timeline-event-copy h3 {
+	font-size: 1.75em;
+}
+
+.timeline-event-copy h4 {
+	font-size: 1.2em;
+}
+
+.timeline-event-copy strong {
+	font-weight: 700;
+}
+
+.timeline-event-copy {
+	padding-bottom: 1.2em;
+}
+
+.timeline-event-thumbnail {
+	font-size: 14px;
+	font-weight: 400;
+	color: white;
+	background-color: black;
+	padding: 0 8px;
+	margin: 8px 0;
+	
+	transition: box-shadow 0.5s;
+	display: inline-block;
+}
+
+.timeline-event:hover .timeline-event-thumbnail {
+	box-shadow: inset 40em 0 0 0 #a83279;
+}
+
+.timeline-ul {
+	list-style-type: square;
+	list-style-position: outside;
+}
+
+.about .textbox {
+	text-align: center;
+}
+.about .imgbox{
+	text-align: center;
+	margin: 50px;
+}
+.about .imgbox > img {
+	width:200px;
+}
+.profile{
+	text-align: center;
+	margin: 20px 4%;
+}
+.CSlist{
+	display: inline-block;
+	text-align: left;
+	width: 32%;
+	vertical-align: top;
+}
+.CSlist ul {
+	list-style-type: square;
+}
+
+.uline{
+	height: 0px;
+	border-bottom: 1px solid black;
+	margin: 20px 4%;
+}
+</style>
+
+<div class="about-wapper">
+	<div class="about">
+		<div class="imgbox">
+			<img src="/images/aboutpage/about_icon.png">
+		</div>
+		<div class="textbox">
+			<div class="name">SUNGMOON WEA</div>
+			
+			<div class="uline"></div>
+			
+			<div class="profile">A goal-oriented, broad-sighted, and utilitarian
+				architect who learns quickly and works fast. With four years of
+				working experience as a responsible architect, I can understand the
+				project's goal that has to achieve ultimately, find my role in the
+				team, and carry it out accurately. I’m fluent in Korean and
+				proficient in computer programming and web design technology.
+			</div>
+				
+			<div class="uline"></div>
+			
+			<div class="CSlistbox">
+				<div class="CSlist">
+					<ul>
+						<li>Registered Architect in Korea</li>
+						<li>LEED AP BD+C</li>
+						<li>5+ years’ architectural designer</li>
+						<li>2+ years’ project manager</li>
+					</ul>
+				</div>
+				<div class="CSlist">
+					<ul>
+						<li>Bachelor of Architecture<br>()Hongik University)</li>
+						<li>Data Analysis Developer<br>
+						(Machine Learning Base)</li>
+					</ul>
+				</div>
+				<div class="CSlist">
+					<ul>
+						<li>Auto CAD, Revit</li>
+						<li>SketchUp, Rhino(V-ray)</li>
+						<li>Adobe Ps, Il, Pr, Id</li>
+						<li>C+, Java, Python, AWS</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="timeline">
+		<div class="swiper-container swiper-container-about">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide timeline-event">
+					<div class="timeline-event-copy">
+						<div class="timeline-event-thumbnail">2019 - now</div>
+						<h3>Freelancer</h3>
+						<h4>Architect, Graphic Designer</h4>
+						<ul class="timeline-ul">
+							<li>Feasibility analysis and schematic design for commercial buildings</li>
+							<li>3D rendering, CAD drawing, official documents writing, and architectural consulting</li>
+							<li>Establishing and running the architectural community for sharing the GIS database related to the environment, real estimate, construction trends, etc on the web</li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="swiper-slide timeline-event" style="color:red;">
+					<div class="timeline-event-copy">
+						<div class="timeline-event-thumbnail">2019 - 2020</div>
+						<h3>ABCD Certification</h3>
+						<h4>Certification</h4>
+						<ul class="timeline-ul">
+							<li>Architect License</li>
+							<li>LEED AP BD+C</li>
+							<li>Machine Learning-Based Big Data Analysis Developer's Professional Course</li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="swiper-slide timeline-event">
+					<div class="timeline-event-copy">
+						<div class="timeline-event-thumbnail">2016 - 2019</div>
+						<h3>SPACE Group inc.</h3>
+						<h4>Architectural Designer</h4>
+						<ul class="timeline-ul">
+							<li>As an architectural designer, achieve 75% of competition
+								project won a prize and 40% of them was 1st. It was more than
+								twice of company average.</li>
+							<li>Producing drawings, documents, specifications, and
+								presentation materials with 3D renderings and diagrams.
+								Conducting analyses for design and construction. Communicating
+								with the owner, cooperators and government offices as a project
+								manager.</li>
+							<li><strong>Cheong-Ju culture factory remodeling
+									project</strong><br> <span>As a project architect, I
+									participated in a 500K GSF old factory remodeling project. I
+									produced permit documents and communicated with cooperation
+									companies. And during the construction phase I supported the
+									shop drawings and additional documents.</span>
+							</li>
+							<li>
+							<strong>DHOLIC company building remodeling project</strong><br>
+								<span>As a project manager, I administered the remodeling
+									project that deals with the 100K GSF office building. This
+									project included structural reinforcement and increasing
+									performance such as insulation, HVAC, and water supply system in
+									addition to the design for the express identity of the brand.</span>
+							</li>
+							<li>
+								<strong>Narakium Jungbu Tax Office new
+									construction project</strong><br> <span>As an architect
+									assistant, I participated in 160K GSF new construction project.
+									This project was following the strict standards related to
+									structure and environment because it’s a government tax office.
+									Through the finishing of this project, I could understand the
+									meaning of various documents for construction.</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="swiper-slide timeline-event">
+					<div class="timeline-event-copy">
+						<div class="timeline-event-thumbnail">2010 - 2016</div>
+						<h3>Hongik University</h3>
+						<h4>School of Architecture</h4>
+						<ul class="timeline-ul">
+							<li>Bachelor of Architecture</li>
+							<li>5-years Full-scholarships</li>
+							<li>President for the student council of the department</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+<script>
+var swiperAbout = new Swiper('.swiper-container-about', {
+    direction: 'vertical',
+    slidesPerView: 'auto',
+  });
+</script>
