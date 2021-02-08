@@ -11,21 +11,16 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	border: 0;
-}
-
-.modal-content>button {
-	border: 0;
-}
-
-.modal_img {
-	max-width: 100%;
-	max-height: 700px;
 }
 
 .modal-body {
 	width: 100%;
 	height: 700px;
+}
+
+.modal_img {
+	max-width: 100%;
+	max-height: 700px;
 }
 
 .modal_images>.swiper-slide {
@@ -34,7 +29,7 @@
 	position:relative;
 }
 .modal_images>.swiper-slide>img {
-    max-height: 100%;
+    max-height:100%;
 	max-width:100%;
 	position: absolute;
 	top: 50%;
@@ -62,7 +57,6 @@
 				</button>
 			</div>
 			<div class="modal-body">
-			
 				<div class="swiper-container swiper-container-modal">
 					<div class="swiper-button-next swiper-button-next-modal"></div>
 					<div class="swiper-button-prev swiper-button-prev-modal"></div>
@@ -522,7 +516,7 @@
 </div>
 
 <script type="text/javascript">
-	var swiperH_modal = new Swiper('.swiper-container-modal', {
+	var swiperModal = new Swiper('.swiper-container-modal', {
 		speed : 1000,
 		observer: true, 
 		observeParents: true,

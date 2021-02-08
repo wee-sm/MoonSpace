@@ -39,65 +39,67 @@ body, html, .swiper-container {
 	background: rgba(0,0,0,0.1);
 }
 .swiper-container-indexpage>.swiper-pagination .swiper-pagination-bullet-active {
-	background: rgba(0,0,0,1);
+ 	background: rgba(0,0,0,1);
+}
+
+.swiper-container-indexpage>.swiper-pagination{
+	height: 24px;
 }
 </style>
 </head>
 <body>
-<!-- 	{{> include/navigation}} -->
-<!-- 	{{> index/loading/base_01}} -->
-		<div class="swiper-container swiper-container-indexpage">
-	   		<div class="swiper-pagination swiper-pagination-indexpage"></div>
-	    	<div class="swiper-wrapper">
-	    		<!-- Slides -->
-	    		<div class="swiper-slide">
-					{{>index/main/slide_11_about}}
-				</div>
-	    		<div class="swiper-slide mainslide">
-					{{>index/main/slide_00_mainpage}}
-				</div>
-				<div class="swiper-slide">
-					{{>index/main/slide_01_CompanyProjects}}
-				</div>
-				<div class="swiper-slide">
-					{{>index/main/slide_02_SchoolProjects}}
-				</div>
-				<div class="swiper-slide">
-					{{>index/main/slide_03_OtherProjects}}
-				</div>
+	<div class="swiper-container swiper-container-indexpage">
+   		<div class="swiper-pagination swiper-pagination-indexpage"></div>
+    	<div class="swiper-wrapper">
+    		<!-- Slides -->
+    		<div class="swiper-slide">
+				{{>index/main/slide_11_about}}
+			</div>
+    		<div class="swiper-slide mainslide">
+				{{>index/main/slide_00_mainpage}}
+			</div>
+			<div class="swiper-slide">
+				{{>index/main/slide_01_CompanyProjects}}
+			</div>
+			<div class="swiper-slide">
+				{{>index/main/slide_02_SchoolProjects}}
+			</div>
+			<div class="swiper-slide">
+				{{>index/main/slide_03_OtherProjects}}
 			</div>
 		</div>
-<!-- 		{{>index/main/slide_03_OtherProjects_modal}} -->
-		{{> include/footer}}
-		<script type="text/javascript">
-			var menu1 = ['A', 'H', 'P', 'S', 'O']
-			// swiper
-			var swiperIp = new Swiper('.swiper-container-indexpage', {
-				initialSlide: 1,
-				slidesPerView: 1,
-				lazy: true,
-				speed : 1500,
-				spaceBetween : 0,
-				grabCursor : true,
-				// Optional parameters
-				direction : 'horizontal',
-				loop : false,
-				mousewheel : {
-					invert : false,
-				},
-				effect : 'slide',
-				keyboard : {
-					enabled : true,
-					onlyInViewport : false,
-				},
-				pagination: {
-					el: '.swiper-pagination-indexpage',
-					clickable: true,
-			        renderBullet: function (index1, className1) {
-			            return '<span class="' + className1 + '">' + (menu1[index1]) + '</span>';
-			        },
-				},
-			})
-		</script>
+	</div>
+	<script type="text/javascript">
+		var menu1 = ['A', 'H', 'P', 'S', 'O']
+		// swiper
+		var swiperIp = new Swiper('.swiper-container-indexpage', {
+			initialSlide: 1,
+			slidesPerView: 1,
+			lazy: true,
+			speed : 1500,
+			spaceBetween : 0,
+			grabCursor : true,
+			// Optional parameters
+			direction : 'horizontal',
+			loop : false,
+			mousewheel : {
+				invert : false,
+			},
+			effect : 'slide',
+			keyboard : {
+				enabled : true,
+				onlyInViewport : false,
+			},
+			pagination: {
+				el: '.swiper-pagination-indexpage',
+				clickable: true,
+		        renderBullet: function (index1, className1) {
+		            return '<span class="' + className1 + '">' + (menu1[index1]) + '</span>';
+		        },
+			},
+		})
+	</script>
+	{{>index/main/slide_03_OtherProjects_modal}}
+	{{> include/footer}}
 </body>
 </html>
