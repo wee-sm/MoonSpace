@@ -183,6 +183,7 @@ body, html, .swiper-container {
 				</div>
 				
 				<div class="swiper-slide">
+					<!-- work 05 Modal -->
 					<div class="otherwork" data-toggle="modal" data-target="#work_Modal"
 						modal-title="Seoul Animation Center - Drawing work"
 						modal_url="/archi/modal/505_sac/309"
@@ -191,6 +192,7 @@ body, html, .swiper-container {
 							<img src="/images/otherprojects/505_sac.png">
 						</div>
 					</div>
+					<!-- work 06 Modal -->
 					<div class="otherwork" data-toggle="modal" data-target="#work_Modal"
 						modal-title="Western Welfare Center - Concept Diagram and Drawing work"
 						modal_url="/archi/modal/506_wwc/310"
@@ -274,7 +276,6 @@ body, html, .swiper-container {
 
 <script type="text/javascript">
 $('.otherwork').click(function(e) {
-	$('#work_Modal').find("#modaliframe").attr('src', "/archi/modal/loading");
 	$('#work_Modal').find(".modal-title").html($(this).attr('modal-title'));
 	$('#work_Modal').find(".modal-footer").html($(this).attr('modal-footer'));
 	$('#work_Modal').find("#modaliframe").attr('src', $(this).attr('modal_url'));

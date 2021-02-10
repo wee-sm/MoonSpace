@@ -54,3 +54,9 @@
 		</div>
 	</div>
 </div>
+
+<script>
+$("#work_Modal").on('hide.bs.modal', function(){
+	$('#work_Modal').find("#modaliframe").attr('src', "/archi/modal/loading");
+});
+</script>
