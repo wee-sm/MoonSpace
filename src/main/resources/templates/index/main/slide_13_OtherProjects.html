@@ -1,0 +1,295 @@
+<style type="text/css">
+body, html, .swiper-container {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	position:relative;
+	overflow: hidden;
+}
+/* container */
+.otherwork_container {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+/* info */
+.otherwork_info {
+	position:relative;
+ 	width: 350px;
+ 	height: 100vh;
+ 	
+ 	display: inline-block;
+	text-align: center;
+}
+
+.otherwork_info > .info {
+	position:absolute;
+  	top:10%;
+	left: 0;
+	height: 240px;
+	width: 240px;
+	margin: 0 25px;
+	padding: 10px 0;
+	text-align: left;
+	
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+.otherwork_contents {
+	position: relative;
+ 	width: 1060px;
+  	height: 90vh;
+ 	display: inline-block;
+	text-align: left;
+}
+
+.otherwork_contents > .swiper-container-s-h {
+  	height: 80%;
+  	top:10%;
+	position: absolute;
+}
+.otherwork_contents .swiper-slide {
+	height: 250px;
+}
+
+.otherwork {
+	position: relative;
+/* 	width: 240px; */
+	width: 240px;
+	height: 240px;
+ 	border: 1px solid #000;
+	margin:3px;
+	
+	z-index: 0;
+ 	display: inline-block;
+	align-content: center;
+	cursor: pointer;
+}
+.otherwork_imgwapper{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	width: 85%;
+	height: 85%;
+	overflow: hidden;
+}
+
+.otherwork_imgwapper>img {
+ 	width: 100%;
+	height: 100%;
+	overflow:hidden;
+	transition: all 0.5s ease;
+	object-fit: cover;
+}
+.otherwork_imgwapper:hover>img {
+	transform: scale(1.2);
+}
+
+.otherwork:hover {
+	z-index: 1;
+}
+
+.otherwork:before, .otherwork:after {
+	content: "";
+	background: white;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.otherwork:before {
+	width: calc(100% + 5px);
+	height: 100%;
+	z-index: 1;
+	transition: height 1s ease, opacity 0.8s ease;
+}
+
+.otherwork:after {
+	height: calc(100% + 5px);
+	width: 100%;
+	z-index: 1;
+	transition: width 1s ease, opacity 0.8s ease;
+}
+
+.otherwork:hover:before, .otherwork:focus:before {
+	transition: height 0.2s ease, opacity 0.3s ease;
+	height: 85%;
+	opacity: 0.7;
+}
+
+.otherwork:hover:after, .otherwork:focus:after {
+	transition: width 0.2s ease, opacity 0.3s ease;
+	width: 85%;
+	opacity: 0.8;
+}
+</style>
+
+<div class="otherwork_container centerVH">
+	<!-- info section -->
+	<section class="otherwork_info">
+		<div class="info">
+			<span class="text_numbering">Other Projects</span><br>
+			<span class="text_title" style="font-size: 24px;">
+				Rendering<br>
+				Illustrating<br>
+				Modeling<br>
+				Drawing
+			</span>
+			<!-- TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT -->
+		</div>
+	</section><!--
+	works section
+	--><section class="otherwork_contents">
+		<div class="swiper-container swiper-container-other">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div class="otherwork" data-toggle="modal" data-target="#work_Modal"
+						modal-title="Studio. Bawi"
+						modal_url="/archi/modal/501_bawi/305"
+						modal-footer="SPACE Group Design Mission">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/501_bawi.jpg">
+						</div>
+					</div>
+					<div class="otherwork" data-toggle="modal" data-target="#work_Modal"
+						modal-title="Public Housing Illustrate"
+						modal_url="/archi/modal/502_phc/306"
+						modal-footer="Residential Competition Work">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/502_phc.png">
+						</div>
+					</div>
+					<div class="otherwork" data-toggle="modal" data-target="#work_Modal"
+						modal-title="Cloud Campus"
+						modal_url="/archi/modal/503_dc/307"
+						modal-footer="Office Competition Work">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/503_dc.png">
+						</div>
+					</div>
+					<div class="otherwork" data-toggle="modal" data-target="#work_Modal"
+						modal-title="Garak Market Concept diagram"
+						modal_url="/archi/modal/504_gm/308"
+						modal-footer="Public Market Competition Work">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/504_gm.png">
+						</div>
+					</div>
+				</div>
+				
+				<div class="swiper-slide">
+					<div class="otherwork" data-toggle="modal" data-target="#work_Modal"
+						modal-title="Seoul Animation Center - Drawing work"
+						modal_url="/archi/modal/505_sac/309"
+						modal-footer="Competition - 1st Prized">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/505_sac.png">
+						</div>
+					</div>
+					<div class="otherwork" data-toggle="modal" data-target="#work_Modal"
+						modal-title="Western Welfare Center - Concept Diagram and Drawing work"
+						modal_url="/archi/modal/506_wwc/310"
+						modal-footer="Competition - 2nd Prized">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/506_wwc.png">
+						</div>
+					</div>
+					<!-- work 07 Modal -->
+					<div class="otherwork" data-toggle="modal" data-target="#work_Modal"
+						modal-title="Game Festival Nexon Booth"
+						modal_url="/archi/modal/507_nam/311"
+						modal-footer="Model Making_Freelancer Job">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/507_nam.png">
+						</div>
+					</div>
+					<!-- work 08 Modal -->
+					<div class="otherwork" data-toggle="modal" data-target="#work_Modal"
+						modal-title="House on the Roof"
+						modal_url="/archi/modal/508_rh/312"
+						modal-footer="Rooptop housing for student">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/508_rh.png">
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<!-- work 09 Modal -->
+					<div class="otherwork" data-toggle="modal" data-target="#work_Modal"
+						modal-title="About Hong-dae"
+						modal_url="/archi/modal/509_hdb/313"
+						modal-footer="Book Making Project">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/509_hdb.png">
+						</div>
+					</div>
+					<!-- work 10 Modal -->
+					<div class="otherwork" data-toggle="modal" data-target="#work_Modal"
+						modal-title="Nursing Home Interior Rendering"
+						modal_url="/archi/modal/510_yyo/314"
+						modal-footer="Freelancer Rendering">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/510_yyo.png">
+						</div>
+					</div>
+					<!-- work 11 Modal -->
+					<div class="otherwork" data-toggle="modal" data-target="#work_Modal"
+						modal-title="Render Study 01"
+						modal_url="/archi/modal/601_ren/315"
+						modal-footer="Rendering_Freelancer Job">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/601_ren.jpg">
+						</div>
+					</div>
+					<!-- work 12 Modal -->
+					<div class="otherwork" data-toggle="modal" data-target="#work_Modal"
+						modal-title="Render Study 02"
+						modal_url="/archi/modal/602_ren/316"
+						modal-footer="Rendering_Freelancer Job">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/602_ren.png">
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<!-- work 13 Modal -->
+					<div class="otherwork" data-toggle="modal" data-target="#work_Modal"
+						modal-title="Render Study 03"
+						modal_url="/archi/modal/603_ren/317"
+						modal-footer="Rendering_Freelancer Job">
+						<div class="otherwork_imgwapper">
+							<img src="/images/otherprojects/602_ren.png">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+
+<script type="text/javascript">
+$('.otherwork').click(function(e) {
+	$('#work_Modal').find("#modaliframe").attr('src', "/archi/modal/loading");
+	$('#work_Modal').find(".modal-title").html($(this).attr('modal-title'));
+	$('#work_Modal').find(".modal-footer").html($(this).attr('modal-footer'));
+	$('#work_Modal').find("#modaliframe").attr('src', $(this).attr('modal_url'));
+});
+</script>
+ 
+<script>
+var swiperV = new Swiper('.swiper-container-other', {
+    direction: 'vertical',
+    freeMode: true,
+    slidesPerView: 'auto',
+	pagination: {
+		el: '.swiper-pagination-other',
+		dynamicBullets: true,
+	},
+  });
+</script>

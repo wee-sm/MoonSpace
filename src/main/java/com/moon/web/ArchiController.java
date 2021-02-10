@@ -11,17 +11,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.moon.admin.domain.MoonImage;
 import com.moon.admin.domain.MoonProject;
 import com.moon.admin.repository.MoonProjectRepository;
 
 @Controller
+@RequestMapping("archi")
 public class ArchiController {
 	@Autowired
 	private MoonProjectRepository moonProjectsRepository;
 
-	@GetMapping("archi/{type}/{name}/{id}")
+	@GetMapping("/{type}/{name}/{id}")
 	public String archiprojects(
 			@PathVariable String type,
 			@PathVariable String name,
@@ -55,5 +57,29 @@ public class ArchiController {
 		model.addAttribute("moonotherimages", otherIamgesMap);
 
 		return "archi/" + type + "/" + name;
+	}
+	
+	@GetMapping("/modal/{name}/{id}")
+	public String otherProjects(
+			Model model,
+			@PathVariable String name,
+			@PathVariable Long id) {
+		
+		MoonProject modalProject = moonProjectsRepository.findById(id).get();
+		List<MoonImage> modalImages = modalProject.getMoonImages();
+		
+		Base64.Encoder encoder = Base64.getEncoder();
+		
+		for (int i = 0; i < modalImages.size(); i++) {
+			MoonImage moonimage = modalImages.get(i);
+			model.addAttribute(moonimage.getImageName(), "data:image/png;base64," + encoder.encodeToString(moonimage.getImage()));
+		}
+		
+		return "archi/otherproject_modal/" + name;
+	}
+	
+	@GetMapping("/modal/loading")
+	public String otherLoading() {
+		return "archi/otherproject_modal/999_loading";
 	}
 }

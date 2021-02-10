@@ -9,24 +9,32 @@ body, html, .swiper-container {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	position:relative;
+	position: relative;
 	overflow: hidden;
 }
 
-.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
-	margin: 0;
-	z-index:9999;
+.maintext {
+	font-size: 24px;
+	font-family: 'Architects Daughter', cursive;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
-.swiper-container-indexpage>.swiper-pagination {
+.swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet
+	{
+	margin: 0;
+	z-index: 9999;
+}
+
+.swiper-container-mainpage>.swiper-pagination {
 	position: absolute;
-	top: 60px;
-	right: 60px;
+	top: calc(60px + 12px * 1);
+	right: calc(60px + 24px * 3);
 	width: auto !important;
 	left: auto !important;
+	margin: 0;
 }
-.swiper-container-indexpage>.swiper-pagination .swiper-pagination-bullet {
+
+.swiper-container-mainpage>.swiper-pagination .swiper-pagination-bullet
+	{
 	border-radius: 0;
 	width: 24px;
 	height: 24px;
@@ -34,72 +42,73 @@ body, html, .swiper-container {
 	line-height: 24px;
 	font-size: 16px;
 	font-family: 'Russo One', sans-serif;
-	color:#FFF;
+	color: #FFF;
 	opacity: 1;
-	background: rgba(0,0,0,0.1);
-}
-.swiper-container-indexpage>.swiper-pagination .swiper-pagination-bullet-active {
- 	background: rgba(0,0,0,1);
+	background: rgba(0, 0, 0, 0.1);
 }
 
-.swiper-container-indexpage>.swiper-pagination{
-	height: 24px;
+.swiper-container-mainpage>.swiper-pagination .swiper-pagination-bullet-active
+	{
+	background: rgba(0, 0, 0, 1);
+}
+
+#gitframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	z-index: 99;
 }
 </style>
 </head>
 <body>
-	<div class="swiper-container swiper-container-indexpage">
-   		<div class="swiper-pagination swiper-pagination-indexpage"></div>
-    	<div class="swiper-wrapper">
-    		<!-- Slides -->
-    		<div class="swiper-slide">
-				{{>index/main/slide_11_about}}
-			</div>
-    		<div class="swiper-slide mainslide">
+<div class="swiper-container swiper-container-mainpage">
+	<div class="swiper-pagination swiper-pagination-mainpage"></div>
+   	<div class="swiper-wrapper">
+   		<!-- Slides -->
+		<div class="swiper-slide">
+			<iframe src="https://wee-sm.github.io/about/" id="gitframe">
+			    Your browser doesn't support iframes
+			</iframe>
+		</div>
+   		<div class="swiper-slide">
 				{{>index/main/slide_00_mainpage}}
-			</div>
-			<div class="swiper-slide">
-				{{>index/main/slide_01_CompanyProjects}}
-			</div>
-			<div class="swiper-slide">
-				{{>index/main/slide_02_SchoolProjects}}
-			</div>
-			<div class="swiper-slide">
-				{{>index/main/slide_03_OtherProjects}}
+		</div>
+		<div class="swiper-slide">
+			<div class="maintext centerVH">
+				XD
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">
-		var menu1 = ['A', 'H', 'P', 'S', 'O']
-		// swiper
-		var swiperIp = new Swiper('.swiper-container-indexpage', {
-			initialSlide: 1,
-			slidesPerView: 1,
-			lazy: true,
-			speed : 1500,
-			spaceBetween : 0,
-			grabCursor : true,
-			// Optional parameters
-			direction : 'horizontal',
-			loop : false,
-			mousewheel : {
-				invert : false,
-			},
-			effect : 'slide',
-			keyboard : {
-				enabled : true,
-				onlyInViewport : false,
-			},
-			pagination: {
-				el: '.swiper-pagination-indexpage',
-				clickable: true,
-		        renderBullet: function (index1, className1) {
-		            return '<span class="' + className1 + '">' + (menu1[index1]) + '</span>';
-		        },
-			},
-		})
-	</script>
-	{{>index/main/slide_03_OtherProjects_modal}}
-	{{> include/footer}}
+</div>
+{{>index/main/slide_13_OtherProjects_modal}}
+{{> include/footer}}
+
+<script type="text/javascript">
+var menu2 = ['C', 'H', 'X']
+var swiperMp = new Swiper('.swiper-container-mainpage', {
+	initialSlide: 1,
+	slidesPerView: 1,
+	lazy: true,
+	speed : 1500,
+	spaceBetween : 0,
+	grabCursor : true,
+    direction: 'vertical',
+	loop : false,
+	keyboard : {
+		enabled : true,
+		onlyInViewport : false,
+	},
+	pagination: {
+		el: '.swiper-pagination-mainpage',
+		clickable: true,
+		renderBullet: function (index2, className2) {
+            return '<span class="' + className2 + '">' + (menu2[index2]) + '</span>';
+		},
+	},
+});
+</script>
 </body>
 </html>
