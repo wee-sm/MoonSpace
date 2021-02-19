@@ -1,16 +1,20 @@
 package com.moon.web;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.moon.admin.domain.MoonImage;
@@ -28,6 +32,25 @@ public class AdminController {
 		model.addAttribute("moonprojects", moonProjectsRepository.findAll());
 		return "admin/projects";
 	}
+	
+	@GetMapping("/loginForm")
+	public String loginForm() {
+		return "/admin/login";
+	}
+	
+	@PostMapping("/login")
+	public String login(String adminId, String password, HttpSession session) {
+		// temp login function
+		if (!password.equals("1234") | !adminId.equals("1234")) {
+			System.out.println("Login Fallure!");
+			return "redirect:/admin/loginForm";
+		}
+		
+		System.out.println("Login Success!");
+		session.setAttribute("adminId", adminId);
+		return "redirect:/";
+	}
+	
 
 	@GetMapping("/{id}")
 	public String showImages(@PathVariable Long id, Model model) {
