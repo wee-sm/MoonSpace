@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.moon.admin.domain.MoonImage;
 import com.moon.admin.domain.MoonProject;
 import com.moon.admin.repository.MoonProjectRepository;
+import com.moon.admin.utility.HttpSessionUtils;
 
 @Controller
 @RequestMapping("admin")
@@ -29,7 +30,7 @@ public class AdminController {
 	@GetMapping("")
 	public String projects(Model model, HttpSession session) {
 //		System.out.println(); 
-		if (session.getAttribute("adminLogin") == null) {
+		if (!HttpSessionUtils.isLoginUser(session)) {
 			return "redirect:admin/loginForm";
 		}
 		model.addAttribute("moonprojects", moonProjectsRepository.findAll());
@@ -38,7 +39,7 @@ public class AdminController {
 	
 	@GetMapping("/loginForm")
 	public String loginForm() {
-		return "/admin/login";
+		return "admin/login";
 	}
 	
 	@PostMapping("/login")
@@ -46,12 +47,12 @@ public class AdminController {
 		// temp login function
 		if (!password.equals("1234") | !adminId.equals("1234")) {
 			System.out.println("Login Fallure!");
-			return "redirect:/admin/loginForm";
+			return "redirect:admin/loginForm";
 		}
 		
 		System.out.println("Login Success!");
-		session.setAttribute("adminLogin", true);
-		return "redirect:/admin";
+		session.setAttribute(HttpSessionUtils.USER_SESSIO_KEY, true);
+		return "admin";
 	}
 	
 	@GetMapping("/{id}")
