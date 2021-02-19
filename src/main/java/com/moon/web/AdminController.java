@@ -1,6 +1,5 @@
 package com.moon.web;
 
-import java.io.Console;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
@@ -28,7 +27,11 @@ public class AdminController {
 	private MoonProjectRepository moonProjectsRepository;
 
 	@GetMapping("")
-	public String projects(Model model) {
+	public String projects(Model model, HttpSession session) {
+//		System.out.println(); 
+		if (session.getAttribute("adminLogin") == null) {
+			return "redirect:/admin/loginForm";
+		}
 		model.addAttribute("moonprojects", moonProjectsRepository.findAll());
 		return "admin/projects";
 	}
@@ -47,11 +50,10 @@ public class AdminController {
 		}
 		
 		System.out.println("Login Success!");
-		session.setAttribute("adminId", adminId);
-		return "redirect:/";
+		session.setAttribute("adminLogin", true);
+		return "redirect:/admin";
 	}
 	
-
 	@GetMapping("/{id}")
 	public String showImages(@PathVariable Long id, Model model) {
 		MoonProject moonProject = moonProjectsRepository.findById(id).get();
