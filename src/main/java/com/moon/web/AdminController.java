@@ -30,7 +30,7 @@ public class AdminController {
 	public String projects(Model model, HttpSession session) {
 //		System.out.println(); 
 		if (session.getAttribute("adminLogin") == null) {
-			return "redirect:/admin/loginForm";
+			return "redirect:admin/loginForm";
 		}
 		model.addAttribute("moonprojects", moonProjectsRepository.findAll());
 		return "admin/projects";
