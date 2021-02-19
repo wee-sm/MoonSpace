@@ -47,12 +47,12 @@ public class AdminController {
 		// temp login function
 		if (!password.equals("1234") | !adminId.equals("1234")) {
 			System.out.println("Login Fallure!");
-			return "redirect:admin/loginForm";
+			return "redirect:/admin/loginForm";
 		}
 		
 		System.out.println("Login Success!");
 		session.setAttribute(HttpSessionUtils.USER_SESSIO_KEY, true);
-		return "admin";
+		return "redirect:/admin";
 	}
 	
 	@GetMapping("/{id}")
