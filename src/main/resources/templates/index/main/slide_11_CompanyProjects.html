@@ -130,7 +130,7 @@
 	
 	vertical-align: top;
 }
-
+		
 .workingsample_1 {
 	position:relative;
  	display: inline-block;
@@ -157,8 +157,14 @@
 	opacity: 0;
 	transition: opacity 1s;
 }
+
 .workingsample_1:hover > .sample_title {
 	opacity: 1;
+}
+
+@media all and (max-width: 1420px) { 
+	.workingsample_1 {height: 300px;}
+	.workingsample_1:hover > .sample_title {opacity: 0;}
 }
 </style>
 
@@ -168,7 +174,7 @@
 		<span class="text_title" style="font-size: 24px;">
 			SPACE Group inc.
 		</span><br>
-		Construction Design Projects
+		Completed Design Projects
 	</div>
 	
 	<!-- 1. -->
