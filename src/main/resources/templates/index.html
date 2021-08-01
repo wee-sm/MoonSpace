@@ -66,47 +66,47 @@ body, html, .swiper-container {
 <body>
 <div class="swiper-container swiper-container-mainpage">
 	<div class="swiper-pagination swiper-pagination-mainpage"></div>
-   	<div class="swiper-wrapper">
-		<div class="swiper-slide">
-			<iframe src="https://wee-sm.github.io/" id="gitframe">
-			    Your browser doesn't support iframes
-			</iframe>
-		</div>
-   		<div class="swiper-slide">
+<!--    	<div class="swiper-wrapper"> -->
+<!-- 		<div class="swiper-slide"> -->
+<!-- 			<iframe src="https://wee-sm.github.io/" id="gitframe"> -->
+<!-- 			    Your browser doesn't support iframes -->
+<!-- 			</iframe> -->
+<!-- 		</div> -->
+<!--    		<div class="swiper-slide"> -->
 			{{>index/main/slide_00_mainpage}}
-		</div>
-		<div class="swiper-slide">
-			{{>index/main/slide_51_GIS}}
-		</div>
-	</div>
+<!-- 		</div> -->
+<!-- 		<div class="swiper-slide"> -->
+<!-- 			{{>index/main/slide_51_GIS}} -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 </div>
 {{>index/main/slide_13_OtherProjects_modal}}
 {{>index/main/slide_22_about_contact_modal}}
 {{> include/footer}}
 
 <script type="text/javascript">
-var menu2 = ['C', 'H', 'X']
-var swiperMp = new Swiper('.swiper-container-mainpage', {
-	initialSlide: 1,
-	slidesPerView: 1,
-	lazy: true,
-	speed : 1500,
-	spaceBetween : 0,
-	grabCursor : true,
-    direction: 'vertical',
-	loop : false,
-	keyboard : {
-		enabled : true,
-		onlyInViewport : false,
-	},
-	pagination: {
-		el: '.swiper-pagination-mainpage',
- 		clickable: true,
-		renderBullet: function (index2, className2) {
-            return '<span class="' + className2 + '">' + (menu2[index2]) + '</span>';
-		},
-	},
-});
+// var menu2 = ['C', 'H', 'X']
+// var swiperMp = new Swiper('.swiper-container-mainpage', {
+// 	initialSlide: 1,
+// 	slidesPerView: 1,
+// 	lazy: true,
+// 	speed : 1500,
+// 	spaceBetween : 0,
+// 	grabCursor : true,
+//     direction: 'vertical',
+// 	loop : false,
+// 	keyboard : {
+// 		enabled : true,
+// 		onlyInViewport : false,
+// 	},
+// 	pagination: {
+// 		el: '.swiper-pagination-mainpage',
+//  		clickable: true,
+// 		renderBullet: function (index2, className2) {
+//             return '<span class="' + className2 + '">' + (menu2[index2]) + '</span>';
+// 		},
+// 	},
+// });
 </script>
 </body>
 </html>
